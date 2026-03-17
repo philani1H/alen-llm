@@ -69,6 +69,8 @@ emotional_intelligence:
     - sad
     - happy
     - anxious
+    - overwhelmed
+    - proud
 
 # ============================================================
 # MEMORY & PATTERN STORE
