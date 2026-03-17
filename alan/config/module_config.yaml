@@ -1,0 +1,164 @@
+# ALAN v4 — Module Configuration
+# ECONX GROUP (PTY) LTD
+#
+# Module-specific settings for each cognitive component.
+# All behaviors are LEARNED, not hardcoded — these settings
+# configure the architecture, not the behavior.
+
+# ============================================================
+# REASONING ENGINE
+# ============================================================
+reasoning:
+  dedicated_heads: 8
+  chain_of_thought: true
+  backward_verification: true
+  max_verification_iterations: 3
+  confidence_threshold: 0.6
+  scratchpad:
+    max_thinking_tokens: 1024
+    thinking_token_prefix: "<think>"
+    thinking_token_suffix: "</think>"
+    visible_to_user: false
+    contributes_to_loss: true
+
+# ============================================================
+# CREATIVITY ENGINE
+# ============================================================
+creativity:
+  dedicated_heads: 6
+  cross_domain_attention: true
+  divergent_sampling: true
+  num_candidates: 3
+  temperature:
+    creative_mode: 0.8
+    exploration_mode: 1.0
+
+# ============================================================
+# CURIOSITY MODULE
+# ============================================================
+curiosity:
+  dedicated_heads: 4
+  gap_detection: true
+  question_generation: true
+  question_quality_criteria:
+    targeted: true
+    efficient: true
+    insightful: true
+    builds_on_context: true
+
+# ============================================================
+# EMOTIONAL INTELLIGENCE
+# ============================================================
+emotional_intelligence:
+  dedicated_heads: 4
+  tone_classification: true
+  empathy_modulation: true
+  emotional_dimensions:
+    - user_frustration
+    - user_excitement
+    - user_confusion
+    - user_expertise_level
+    - conversation_urgency
+    - rapport_level
+    - teaching_receptivity
+  tones:
+    - neutral
+    - frustrated
+    - excited
+    - confused
+    - sad
+    - happy
+    - anxious
+
+# ============================================================
+# MEMORY & PATTERN STORE
+# ============================================================
+memory:
+  dedicated_heads: 6
+  pattern_matching: true
+  temporal_awareness: true
+  external_memory:
+    embedding_dim: 2048
+    max_stored_patterns: 1000000
+    retrieval_top_k: 10
+    consolidation_interval: session_end
+    decay_factor: 0.995
+    reinforcement_boost: 1.5
+  knowledge_graph:
+    edge_types:
+      - causes
+      - enables
+      - contradicts
+      - analogous_to
+      - generalizes
+      - requires
+      - enhances
+      - temporal
+      - domain_transfer
+
+# ============================================================
+# META-REASONING
+# ============================================================
+meta_reasoning:
+  dedicated_heads: 4
+  contradiction_detection: true
+  completeness_check: true
+  confidence_scoring: true
+  max_self_check_iterations: 3
+  confidence_threshold: 0.6
+
+# ============================================================
+# FEEDBACK INTEGRATION
+# ============================================================
+feedback_integration:
+  correction_detection: true
+  rehearsal_multipliers:
+    heard_once: 1.0
+    restated: 1.3
+    applied: 1.6
+    connected: 2.0
+    questioned: 2.2
+    taught_back: 2.5
+
+# ============================================================
+# ENGAGEMENT HOOKS
+# ============================================================
+engagement:
+  hook_types:
+    - insight_hook
+    - challenge_hook
+    - pattern_reveal
+    - expansion_hook
+    - personalization_hook
+    - incomplete_revelation
+  hook_calibration:
+    simple_questions: none
+    medium_complexity: light
+    deep_complex: natural
+    ongoing_dialogue: personalized
+
+# ============================================================
+# OUTPUT CONTROL
+# ============================================================
+output:
+  strategies:
+    - concise_answer
+    - step_by_step
+    - exploratory
+    - teaching
+    - empathetic
+    - clarifying
+    - rehearsal
+  dynamic_temperature:
+    reasoning_mode:
+      temperature: 0.2
+      top_p: 0.9
+    balanced_mode:
+      temperature: 0.5
+      top_p: 0.95
+    creative_mode:
+      temperature: 0.8
+      top_p: 0.98
+    exploration_mode:
+      temperature: 1.0
+      top_p: 1.0

@@ -38,6 +38,16 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__, static_folder="../chat")
 CORS(app)
 
+# Register memory and feedback API blueprints
+try:
+    from api.memory_api import memory_bp
+    from api.feedback_api import feedback_bp
+    app.register_blueprint(memory_bp)
+    app.register_blueprint(feedback_bp)
+    logger.info("[ALAN] Memory and Feedback API endpoints registered")
+except ImportError:
+    logger.info("[ALAN] Memory/Feedback APIs not available (optional)")
+
 # ============================================================
 # ALAN INFERENCE ENGINE
 # ============================================================
