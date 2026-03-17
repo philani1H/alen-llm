@@ -1,7 +1,7 @@
 {
-  "passed": 46,
+  "passed": 47,
   "failed": 0,
-  "total": 46,
+  "total": 47,
   "success": true,
   "results": [
     {
@@ -12,7 +12,7 @@
     {
       "test": "Model build (small)",
       "status": "PASS",
-      "details": "99,527,021 params"
+      "details": "99,528,559 params"
     },
     {
       "test": "Forward pass (text only)",
@@ -32,7 +32,7 @@
     {
       "test": "Parameter count reasonable",
       "status": "PASS",
-      "details": "99,527,021 parameters"
+      "details": "99,528,559 parameters"
     },
     {
       "test": "Topic extraction",
@@ -125,6 +125,11 @@
       "details": "30 examples"
     },
     {
+      "test": "Emotional tones covered by model",
+      "status": "PASS",
+      "details": "tones=['anxious', 'confused', 'excited', 'frustrated', 'neutral', 'overwhelmed', 'proud', 'sad']"
+    },
+    {
       "test": "Combined training data",
       "status": "PASS",
       "details": "199 total examples"
@@ -162,17 +167,17 @@
     {
       "test": "CreativityEngine forward",
       "status": "PASS",
-      "details": "candidates=3, gate=0.500"
+      "details": "candidates=3, gate=0.502"
     },
     {
       "test": "CuriosityModule forward",
       "status": "PASS",
-      "details": "gap=minor_gap, should_ask=0.496"
+      "details": "gap=minor_gap, should_ask=0.527"
     },
     {
       "test": "FeedbackIntegration forward",
       "status": "PASS",
-      "details": "type=gentle_correction, rehearsal=0.523"
+      "details": "type=gentle_correction, rehearsal=0.468"
     },
     {
       "test": "PatternStore store/stats",
@@ -192,17 +197,17 @@
     {
       "test": "DynamicTemperature forward",
       "status": "PASS",
-      "details": "temp=0.952, top_p=0.904"
+      "details": "temp=0.878, top_p=0.897"
     },
     {
       "test": "OutputController forward",
       "status": "PASS",
-      "details": "strategy=exploratory, depth=0.477"
+      "details": "strategy=step_by_step, depth=0.468"
     },
     {
       "test": "EngagementHooks forward",
       "status": "PASS",
-      "details": "hook=insight_hook, intensity=0.120"
+      "details": "hook=pattern_reveal, intensity=0.259"
     },
     {
       "test": "CurriculumScheduler phases",
@@ -222,17 +227,17 @@
     {
       "test": "Reasoning metadata valid",
       "status": "PASS",
-      "details": "confidence=0.49953481554985046"
+      "details": "confidence=0.4999767541885376"
     },
     {
       "test": "Output strategy selected",
       "status": "PASS",
-      "details": "strategy=clarifying"
+      "details": "strategy=concise_answer"
     },
     {
       "test": "Dynamic temperature computed",
       "status": "PASS",
-      "details": "temp=0.9133738875389099"
+      "details": "temp=0.9071758985519409"
     }
   ]
 }
