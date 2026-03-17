@@ -19,6 +19,16 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+# Import cognitive modules
+from .modules.reasoning_engine import ReasoningEngine, ScratchpadMechanism
+from .modules.emotional_intelligence import EmotionalIntelligence, MetaReasoning
+from .modules.creativity_engine import CreativityEngine
+from .modules.curiosity_module import CuriosityModule
+from .modules.feedback_integration import FeedbackIntegration
+from .output.dynamic_temperature import DynamicTemperatureController
+from .output.output_controller import OutputController
+from .output.engagement_hooks import EngagementHookSystem
+
 
 # ============================================================
 # DEVICE AUTO-DETECTION
@@ -532,6 +542,22 @@ class Alan(nn.Module):
         else:
             self.vision_encoder = None
 
+        # === Cognitive Modules (from spec sections 3.2-3.8) ===
+        self.reasoning_engine = ReasoningEngine(config.hidden_dim)
+        self.creativity_engine = CreativityEngine(config.hidden_dim)
+        self.curiosity_module = CuriosityModule(config.hidden_dim)
+        self.emotional_intelligence = EmotionalIntelligence(config.hidden_dim)
+        self.meta_reasoning = MetaReasoning(config.hidden_dim)
+        self.feedback_integration = FeedbackIntegration(config.hidden_dim)
+
+        # Scratchpad (internal chain-of-thought, spec section 3.2)
+        self.scratchpad = ScratchpadMechanism(config.hidden_dim, config.scratchpad_max_tokens)
+
+        # === Output System (from spec sections 8, 13) ===
+        self.dynamic_temperature = DynamicTemperatureController(config.hidden_dim)
+        self.output_controller = OutputController(config.hidden_dim)
+        self.engagement_hooks = EngagementHookSystem(config.hidden_dim)
+
         # Initialize weights
         self.apply(self._init_weights)
         logger.info(f"[ALAN] Model initialized: {self.count_parameters():,} parameters")
@@ -610,6 +636,29 @@ class Alan(nn.Module):
         # Integrate external memory
         x = self.memory(x)
 
+        # === Cognitive Module Processing (spec Stage 3) ===
+        # Each module processes the hidden states based on its activation weight
+
+        # Scratchpad: internal chain-of-thought
+        x = self.scratchpad(x)
+
+        # Reasoning engine (activated for logic/code/math tasks)
+        x, reasoning_meta = self.reasoning_engine(x, module_weights.get("reasoning"))
+
+        # Creativity engine (activated for novel/abstract tasks)
+        x, creativity_meta = self.creativity_engine(x, module_weights.get("creativity"))
+
+        # Curiosity module (detects gaps, generates questions)
+        x, curiosity_meta = self.curiosity_module(x, module_weights.get("curiosity"))
+
+        # Emotional intelligence (always active, modulates tone)
+        x, ei_meta = self.emotional_intelligence(x, module_weights.get("emotional"))
+
+        # === Meta-Reasoning Check (spec Stage 4) ===
+        # Verify logical consistency, detect contradictions, score confidence
+        input_repr = self.token_embedding(tokens)  # Original input for comparison
+        x, meta_meta = self.meta_reasoning(x, input_repr=input_repr, activation_weight=module_weights.get("meta"))
+
         # Final normalization
         x = self.final_norm(x)
 
@@ -622,9 +671,20 @@ class Alan(nn.Module):
 
         logits = self.lm_head(x_text)
 
+        # === Output Control (spec sections 8, 13) ===
+        temp_params = self.dynamic_temperature(x, module_weights)
+        output_strategy = self.output_controller(x, module_weights)
+
         metadata = {
             "module_weights": {k: v.detach() for k, v in module_weights.items()},
             "num_parameters": self.count_parameters(),
+            "reasoning": reasoning_meta,
+            "creativity": creativity_meta,
+            "curiosity": curiosity_meta,
+            "emotional_intelligence": ei_meta,
+            "meta_reasoning": meta_meta,
+            "temperature": temp_params,
+            "output_strategy": output_strategy,
         }
 
         return logits, metadata

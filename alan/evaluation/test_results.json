@@ -1,7 +1,7 @@
 {
-  "passed": 31,
+  "passed": 46,
   "failed": 0,
-  "total": 31,
+  "total": 46,
   "success": true,
   "results": [
     {
@@ -12,7 +12,7 @@
     {
       "test": "Model build (small)",
       "status": "PASS",
-      "details": "90,307,510 params"
+      "details": "99,527,021 params"
     },
     {
       "test": "Forward pass (text only)",
@@ -32,7 +32,7 @@
     {
       "test": "Parameter count reasonable",
       "status": "PASS",
-      "details": "90,307,510 parameters"
+      "details": "99,527,021 parameters"
     },
     {
       "test": "Topic extraction",
@@ -158,6 +158,81 @@
       "test": "Full pipeline: safety check passes",
       "status": "PASS",
       "details": "[]"
+    },
+    {
+      "test": "CreativityEngine forward",
+      "status": "PASS",
+      "details": "candidates=3, gate=0.500"
+    },
+    {
+      "test": "CuriosityModule forward",
+      "status": "PASS",
+      "details": "gap=minor_gap, should_ask=0.496"
+    },
+    {
+      "test": "FeedbackIntegration forward",
+      "status": "PASS",
+      "details": "type=gentle_correction, rehearsal=0.523"
+    },
+    {
+      "test": "PatternStore store/stats",
+      "status": "PASS",
+      "details": "stored=True, patterns=1"
+    },
+    {
+      "test": "KnowledgeGraph add/connect",
+      "status": "PASS",
+      "details": "nodes=2, edges=1"
+    },
+    {
+      "test": "MemoryConsolidator consolidate",
+      "status": "PASS",
+      "details": "retained=2, discarded=0"
+    },
+    {
+      "test": "DynamicTemperature forward",
+      "status": "PASS",
+      "details": "temp=0.952, top_p=0.904"
+    },
+    {
+      "test": "OutputController forward",
+      "status": "PASS",
+      "details": "strategy=exploratory, depth=0.477"
+    },
+    {
+      "test": "EngagementHooks forward",
+      "status": "PASS",
+      "details": "hook=insight_hook, intensity=0.120"
+    },
+    {
+      "test": "CurriculumScheduler phases",
+      "status": "PASS",
+      "details": "step 0=foundation, step 500=capability"
+    },
+    {
+      "test": "QualityScorer scoring",
+      "status": "PASS",
+      "details": "overall=0.725"
+    },
+    {
+      "test": "All module metadata present",
+      "status": "PASS",
+      "details": "Found 7/7: ['reasoning', 'creativity', 'curiosity', 'emotional_intelligence', 'meta_reasoning', 'temperature', 'output_strategy']"
+    },
+    {
+      "test": "Reasoning metadata valid",
+      "status": "PASS",
+      "details": "confidence=0.49953481554985046"
+    },
+    {
+      "test": "Output strategy selected",
+      "status": "PASS",
+      "details": "strategy=clarifying"
+    },
+    {
+      "test": "Dynamic temperature computed",
+      "status": "PASS",
+      "details": "temp=0.9133738875389099"
     }
   ]
 }

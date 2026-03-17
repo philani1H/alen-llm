@@ -1,0 +1,22 @@
+# ALAN v4 — Dependencies
+# ECONX GROUP (PTY) LTD
+
+# Core ML
+torch>=2.0.0
+transformers>=4.30.0
+
+# API Server
+flask>=3.0.0
+flask-cors>=4.0.0
+
+# Data Processing
+numpy>=1.24.0
+
+# Training Data Generation
+openai>=1.0.0
+
+# Configuration
+pyyaml>=6.0.0
+
+# Logging & Utilities
+tqdm>=4.65.0

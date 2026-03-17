@@ -31,6 +31,17 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from model.core_transformer import Alan, AlanConfig, build_alan, get_device, print_device_info
 from model.memory.context_tracker import AttentionToContext
+from model.memory.pattern_store import PatternStore
+from model.memory.knowledge_graph import KnowledgeGraph
+from model.memory.consolidation import MemoryConsolidator
+from model.modules.creativity_engine import CreativityEngine
+from model.modules.curiosity_module import CuriosityModule
+from model.modules.feedback_integration import FeedbackIntegration
+from model.output.dynamic_temperature import DynamicTemperatureController
+from model.output.output_controller import OutputController
+from model.output.engagement_hooks import EngagementHookSystem
+from training.curriculum import CurriculumScheduler
+from training.verification.quality_scorer import QualityScorer
 from config.guardrails import AlanAwarenessLayer, get_awareness_layer
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -459,6 +470,250 @@ def test_full_pipeline(results: TestResults, model: Optional[Alan], config: Opti
 
 
 # ============================================================
+# TEST 8: COGNITIVE MODULES
+# ============================================================
+
+def test_cognitive_modules(results: TestResults, device: torch.device):
+    print("\n[TEST 8] Cognitive Modules (Creativity, Curiosity, Feedback)")
+
+    hidden_dim = 512
+    B, T = 2, 16
+
+    # Creativity Engine
+    try:
+        ce = CreativityEngine(hidden_dim).to(device)
+        x = torch.randn(B, T, hidden_dim).to(device)
+        out, meta = ce(x)
+        results.record(
+            "CreativityEngine forward",
+            out.shape == (B, T, hidden_dim) and "num_candidates" in meta,
+            f"candidates={meta['num_candidates']}, gate={meta['novelty_gate_mean']:.3f}"
+        )
+    except Exception as e:
+        results.record("CreativityEngine forward", False, str(e))
+
+    # Curiosity Module
+    try:
+        cm = CuriosityModule(hidden_dim).to(device)
+        x = torch.randn(B, T, hidden_dim).to(device)
+        out, meta = cm(x)
+        results.record(
+            "CuriosityModule forward",
+            out.shape == (B, T, hidden_dim) and "gap_level" in meta,
+            f"gap={meta['gap_level']}, should_ask={meta['should_ask']:.3f}"
+        )
+    except Exception as e:
+        results.record("CuriosityModule forward", False, str(e))
+
+    # Feedback Integration
+    try:
+        fi = FeedbackIntegration(hidden_dim).to(device)
+        x = torch.randn(B, T, hidden_dim).to(device)
+        out, meta = fi(x)
+        results.record(
+            "FeedbackIntegration forward",
+            out.shape == (B, T, hidden_dim) and "correction_type" in meta,
+            f"type={meta['correction_type']}, rehearsal={meta['rehearsal_score']:.3f}"
+        )
+    except Exception as e:
+        results.record("FeedbackIntegration forward", False, str(e))
+
+
+# ============================================================
+# TEST 9: MEMORY SYSTEM
+# ============================================================
+
+def test_memory_system(results: TestResults, device: torch.device):
+    print("\n[TEST 9] Memory System (Pattern Store, Knowledge Graph, Consolidation)")
+
+    hidden_dim = 512
+
+    # Pattern Store
+    try:
+        ps = PatternStore(hidden_dim=hidden_dim)
+        vec = torch.randn(hidden_dim)
+        stored = ps.store(vec, context="test pattern", domain="testing")
+        stats = ps.get_stats()
+        results.record(
+            "PatternStore store/stats",
+            stats["num_patterns"] >= 0,
+            f"stored={stored}, patterns={stats['num_patterns']}"
+        )
+    except Exception as e:
+        results.record("PatternStore store/stats", False, str(e))
+
+    # Knowledge Graph
+    try:
+        kg = KnowledgeGraph(hidden_dim=hidden_dim)
+        emb1 = torch.randn(hidden_dim)
+        emb2 = torch.randn(hidden_dim)
+        id1 = kg.add_node(emb1, label="concept_a", domain="physics")
+        id2 = kg.add_node(emb2, label="concept_b", domain="math")
+        stats = kg.get_stats()
+        results.record(
+            "KnowledgeGraph add/connect",
+            stats["num_nodes"] == 2,
+            f"nodes={stats['num_nodes']}, edges={stats['num_edges']}"
+        )
+    except Exception as e:
+        results.record("KnowledgeGraph add/connect", False, str(e))
+
+    # Memory Consolidator
+    try:
+        mc = MemoryConsolidator(hidden_dim=hidden_dim)
+        mc.add_session_pattern(torch.randn(hidden_dim), "test", "restated")
+        mc.add_session_pattern(torch.randn(hidden_dim), "test2", "applied")
+        result = mc.consolidate()
+        results.record(
+            "MemoryConsolidator consolidate",
+            result["total_processed"] == 2,
+            f"retained={result['retained']}, discarded={result['discarded']}"
+        )
+    except Exception as e:
+        results.record("MemoryConsolidator consolidate", False, str(e))
+
+
+# ============================================================
+# TEST 10: OUTPUT SYSTEM
+# ============================================================
+
+def test_output_system(results: TestResults, device: torch.device):
+    print("\n[TEST 10] Output System (Temperature, Controller, Hooks)")
+
+    hidden_dim = 512
+    B, T = 1, 16
+    x = torch.randn(B, T, hidden_dim).to(device)
+    module_weights = {
+        "reasoning": torch.tensor([0.7]),
+        "creativity": torch.tensor([0.3]),
+        "curiosity": torch.tensor([0.2]),
+        "emotional": torch.tensor([0.5]),
+        "memory": torch.tensor([0.4]),
+        "meta": torch.tensor([0.6]),
+    }
+
+    # Dynamic Temperature
+    try:
+        dtc = DynamicTemperatureController(hidden_dim).to(device)
+        temp = dtc(x, module_weights)
+        results.record(
+            "DynamicTemperature forward",
+            "temperature" in temp and "top_p" in temp,
+            f"temp={temp['temperature']:.3f}, top_p={temp['top_p']:.3f}"
+        )
+    except Exception as e:
+        results.record("DynamicTemperature forward", False, str(e))
+
+    # Output Controller
+    try:
+        oc = OutputController(hidden_dim).to(device)
+        strategy = oc(x, module_weights)
+        results.record(
+            "OutputController forward",
+            "strategy" in strategy and "depth" in strategy,
+            f"strategy={strategy['strategy']}, depth={strategy['depth']:.3f}"
+        )
+    except Exception as e:
+        results.record("OutputController forward", False, str(e))
+
+    # Engagement Hooks
+    try:
+        eh = EngagementHookSystem(hidden_dim).to(device)
+        out, meta = eh(x)
+        results.record(
+            "EngagementHooks forward",
+            out.shape == (B, T, hidden_dim) and "hook_type" in meta,
+            f"hook={meta['hook_type']}, intensity={meta['intensity']:.3f}"
+        )
+    except Exception as e:
+        results.record("EngagementHooks forward", False, str(e))
+
+
+# ============================================================
+# TEST 11: TRAINING INFRASTRUCTURE
+# ============================================================
+
+def test_training_infra(results: TestResults):
+    print("\n[TEST 11] Training Infrastructure")
+
+    # Curriculum Scheduler
+    try:
+        cs = CurriculumScheduler(total_steps=1000)
+        phase = cs.get_current_phase(0)
+        config = cs.get_phase_config(500)
+        results.record(
+            "CurriculumScheduler phases",
+            phase == "foundation" and "phase_name" in config,
+            f"step 0={phase}, step 500={config['phase_name']}"
+        )
+    except Exception as e:
+        results.record("CurriculumScheduler phases", False, str(e))
+
+    # Quality Scorer
+    try:
+        qs = QualityScorer()
+        example = {"type": "reasoning", "problem": "What is 2+2?", "solution": "The answer is 4."}
+        score = qs.score_example(example)
+        results.record(
+            "QualityScorer scoring",
+            "overall" in score and 0 <= score["overall"] <= 1,
+            f"overall={score['overall']:.3f}"
+        )
+    except Exception as e:
+        results.record("QualityScorer scoring", False, str(e))
+
+
+# ============================================================
+# TEST 12: ENRICHED MODEL METADATA
+# ============================================================
+
+def test_enriched_metadata(results: TestResults, model: Optional[Alan], config: Optional[AlanConfig], device: torch.device):
+    print("\n[TEST 12] Enriched Model Metadata (All Modules)")
+
+    if model is None:
+        results.record("Enriched metadata", False, "No model")
+        return
+
+    try:
+        tokens = torch.randint(0, config.vocab_size, (1, 16)).to(device)
+        logits, meta = model(tokens)
+
+        # Check all metadata keys from integrated modules
+        expected_keys = ["reasoning", "creativity", "curiosity", "emotional_intelligence",
+                         "meta_reasoning", "temperature", "output_strategy"]
+        present = [k for k in expected_keys if k in meta]
+        results.record(
+            "All module metadata present",
+            len(present) == len(expected_keys),
+            f"Found {len(present)}/{len(expected_keys)}: {present}"
+        )
+
+        # Check reasoning metadata
+        results.record(
+            "Reasoning metadata valid",
+            "confidence" in meta.get("reasoning", {}),
+            f"confidence={meta.get('reasoning', {}).get('confidence', 'N/A')}"
+        )
+
+        # Check output strategy
+        results.record(
+            "Output strategy selected",
+            "strategy" in meta.get("output_strategy", {}),
+            f"strategy={meta.get('output_strategy', {}).get('strategy', 'N/A')}"
+        )
+
+        # Check temperature control
+        results.record(
+            "Dynamic temperature computed",
+            "temperature" in meta.get("temperature", {}),
+            f"temp={meta.get('temperature', {}).get('temperature', 'N/A')}"
+        )
+
+    except Exception as e:
+        results.record("Enriched metadata test", False, str(e))
+
+
+# ============================================================
 # MAIN TEST RUNNER
 # ============================================================
 
@@ -479,6 +734,11 @@ def run_all_tests(checkpoint_path: Optional[str] = None):
     test_generation(results, model, config, device)
     test_image_understanding(results, model, config, device)
     test_full_pipeline(results, model, config, device)
+    test_cognitive_modules(results, device)
+    test_memory_system(results, device)
+    test_output_system(results, device)
+    test_training_infra(results)
+    test_enriched_metadata(results, model, config, device)
 
     # Print summary
     success = results.summary()
