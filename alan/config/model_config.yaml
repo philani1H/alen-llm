@@ -1,0 +1,58 @@
+# ALAN v4 — Model Architecture Configuration
+# ECONX GROUP (PTY) LTD
+# Nothing is hardcoded. All behavior emerges from training.
+
+model:
+  name: "alan_v4"
+  version: "4.0.0"
+  type: "modular_transformer"
+
+architecture:
+  vocab_size: 50257           # BPE tokenizer (GPT-2 compatible, expandable)
+  max_seq_len: 8192           # Context window
+  hidden_dim: 2048            # Internal representation size (more neurons)
+  num_layers: 32              # Transformer blocks
+  num_heads: 32               # Multi-head attention heads
+  intermediate_dim: 8192      # Feed-forward expansion (4x hidden_dim)
+  dropout: 0.1
+  activation: "gelu"
+  positional_encoding: "rotary"  # RoPE for better long-range attention
+  tie_embeddings: true
+
+# Specialized cognitive module head assignments (out of 32 total heads)
+module_heads:
+  reasoning: 8        # Logic, math, code, step-by-step
+  creativity: 6       # Cross-domain, divergent, novel connections
+  curiosity: 4        # Gap detection, question generation
+  emotional: 4        # Tone detection, empathy calibration
+  memory: 6           # Pattern matching, temporal awareness
+  meta: 4             # Self-check, contradiction detection, confidence
+
+# Context tracking (Attention-to-Context)
+context_tracker:
+  recency_decay: 0.7          # Each new message decays old topic scores by this
+  reference_boost: 1.5        # Explicit references multiply topic score by this
+  threshold: 0.2              # Topics below this are de-prioritized
+  max_topics: 20              # Maximum tracked topics
+
+# Scratchpad (internal chain-of-thought tokens)
+scratchpad:
+  enabled: true
+  max_tokens: 1024
+  token_id_start: 50258       # Special token range for thinking
+
+# Memory system
+memory:
+  vector_dim: 512
+  max_patterns: 100000
+  similarity_threshold: 0.75
+  retrieval_top_k: 5
+
+# Image understanding
+vision:
+  enabled: true
+  encoder: "patch_embedding"
+  patch_size: 16
+  image_size: 224
+  vision_hidden_dim: 768
+  projection_dim: 2048        # Projects to main hidden_dim

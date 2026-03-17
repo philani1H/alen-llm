@@ -1,0 +1,16 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": NaN,
+    "val_loss": NaN,
+    "val_perplexity": NaN,
+    "time_seconds": 207.6156620979309
+  },
+  {
+    "epoch": 2,
+    "train_loss": 0.0,
+    "val_loss": NaN,
+    "val_perplexity": NaN,
+    "time_seconds": 0.008092164993286133
+  }
+]

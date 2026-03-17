@@ -1,0 +1,191 @@
+2026-03-17 10:15:57,586 [INFO] [ALAN] No GPU detected — running on CPU
+2026-03-17 10:15:59,093 [INFO] [ALAN] Model initialized: 90,307,510 parameters
+2026-03-17 10:16:02,265 [INFO] HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-17 10:16:02,290 [INFO] HTTP Request: GET https://huggingface.co/gpt2/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-17 10:16:02,291 [WARNING] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-03-17 10:16:02,315 [INFO] HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 10:16:02,334 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-17 10:16:02,351 [INFO] HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 10:16:02,370 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-17 10:16:02,391 [INFO] HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/vocab.json "HTTP/1.1 200 OK"
+2026-03-17 10:16:02,412 [INFO] HTTP Request: GET https://huggingface.co/gpt2/resolve/main/vocab.json "HTTP/1.1 200 OK"
+2026-03-17 10:16:02,455 [INFO] HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/merges.txt "HTTP/1.1 200 OK"
+2026-03-17 10:16:02,474 [INFO] HTTP Request: GET https://huggingface.co/gpt2/resolve/main/merges.txt "HTTP/1.1 200 OK"
+2026-03-17 10:16:02,506 [INFO] HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/added_tokens.json "HTTP/1.1 404 Not Found"
+2026-03-17 10:16:02,632 [INFO] HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/special_tokens_map.json "HTTP/1.1 404 Not Found"
+2026-03-17 10:16:02,651 [INFO] HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/tokenizer.json "HTTP/1.1 200 OK"
+2026-03-17 10:16:02,669 [INFO] HTTP Request: GET https://huggingface.co/gpt2/resolve/main/tokenizer.json "HTTP/1.1 200 OK"
+2026-03-17 10:16:02,742 [INFO] HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+2026-03-17 10:16:03,040 [INFO] [Tokenizer] GPT-2 tokenizer loaded: vocab_size=50257
+2026-03-17 10:16:03,040 [INFO] 
+Loading training data from: data/generated
+2026-03-17 10:16:03,047 [INFO] [Dataset] Loaded 396 examples (phase=all)
+2026-03-17 10:16:03,048 [INFO] Train: 357 | Val: 39
+2026-03-17 10:16:08,061 [INFO] [Trainer] Initialized on cpu
+2026-03-17 10:16:08,062 [INFO] [Trainer] Parameters: 90,307,510
+2026-03-17 10:16:08,062 [INFO] [Trainer] Output dir: checkpoints
+2026-03-17 10:16:08,062 [INFO] ============================================================
+2026-03-17 10:16:08,062 [INFO] ALAN v4 Training Started
+2026-03-17 10:16:08,063 [INFO]   Device       : cpu
+2026-03-17 10:16:08,063 [INFO]   Epochs       : 2
+2026-03-17 10:16:08,063 [INFO]   Batch size   : 2
+2026-03-17 10:16:08,063 [INFO]   Train samples: 357
+2026-03-17 10:16:08,063 [INFO]   Val samples  : 39
+2026-03-17 10:16:08,063 [INFO]   Total steps  : 89
+2026-03-17 10:16:08,063 [INFO] ============================================================
+2026-03-17 10:16:08,063 [INFO] 
+--- Epoch 1/2 ---
+2026-03-17 10:17:13,180 [INFO] [ALAN] No GPU detected — running on CPU
+2026-03-17 10:17:15,681 [INFO] HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-17 10:17:15,700 [INFO] HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 10:17:15,717 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-17 10:17:15,734 [INFO] HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 10:17:15,755 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-17 10:17:16,198 [INFO] [Tokenizer] GPT-2 tokenizer loaded: vocab_size=50257
+2026-03-17 10:17:17,749 [INFO] [ALAN] Model initialized: 90,307,510 parameters
+2026-03-17 10:17:17,751 [INFO] 
+Loading training data from: data/generated
+2026-03-17 10:17:17,767 [INFO] [Dataset] Loaded 396 examples (phase=all)
+2026-03-17 10:17:17,767 [INFO] Train: 357 | Val: 39
+2026-03-17 10:17:21,521 [INFO] [Trainer] Initialized on cpu
+2026-03-17 10:17:21,522 [INFO] [Trainer] Parameters: 90,307,510
+2026-03-17 10:17:21,522 [INFO] [Trainer] Output dir: checkpoints
+2026-03-17 10:17:21,522 [INFO] ============================================================
+2026-03-17 10:17:21,522 [INFO] ALAN v4 Training Started
+2026-03-17 10:17:21,522 [INFO]   Device       : cpu
+2026-03-17 10:17:21,522 [INFO]   Epochs       : 2
+2026-03-17 10:17:21,522 [INFO]   Batch size   : 2
+2026-03-17 10:17:21,522 [INFO]   Train samples: 357
+2026-03-17 10:17:21,522 [INFO]   Val samples  : 39
+2026-03-17 10:17:21,522 [INFO]   Total steps  : 89
+2026-03-17 10:17:21,522 [INFO] ============================================================
+2026-03-17 10:17:21,522 [INFO] 
+--- Epoch 1/2 ---
+2026-03-17 10:19:00,846 [INFO] [ALAN] No GPU detected — running on CPU
+2026-03-17 10:19:02,977 [INFO] HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-17 10:19:02,977 [WARNING] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-03-17 10:19:02,999 [INFO] HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 10:19:03,018 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-17 10:19:03,034 [INFO] HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 10:19:03,058 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-17 10:19:03,464 [INFO] [Tokenizer] GPT-2 tokenizer loaded: vocab_size=50257
+2026-03-17 10:19:04,909 [INFO] [ALAN] Model initialized: 90,307,510 parameters
+2026-03-17 10:19:04,911 [INFO] 
+Loading training data from: data/generated
+2026-03-17 10:19:04,918 [INFO] [Dataset] Loaded 396 examples (phase=all)
+2026-03-17 10:19:04,919 [INFO] Train: 357 | Val: 39
+2026-03-17 10:19:08,377 [INFO] [Trainer] Initialized on cpu
+2026-03-17 10:19:08,378 [INFO] [Trainer] Parameters: 90,307,510
+2026-03-17 10:19:08,378 [INFO] [Trainer] Output dir: checkpoints
+2026-03-17 10:19:08,378 [INFO] ============================================================
+2026-03-17 10:19:08,378 [INFO] ALAN v4 Training Started
+2026-03-17 10:19:08,378 [INFO]   Device       : cpu
+2026-03-17 10:19:08,378 [INFO]   Epochs       : 2
+2026-03-17 10:19:08,378 [INFO]   Batch size   : 2
+2026-03-17 10:19:08,378 [INFO]   Train samples: 357
+2026-03-17 10:19:08,378 [INFO]   Val samples  : 39
+2026-03-17 10:19:08,378 [INFO]   Total steps  : 89
+2026-03-17 10:19:08,378 [INFO] ============================================================
+2026-03-17 10:19:08,378 [INFO] 
+--- Epoch 1/2 ---
+2026-03-17 10:20:56,504 [INFO]   Epoch 1 | Step 10 | Loss: nan | Perplexity: nan
+2026-03-17 10:22:35,915 [INFO]   Epoch 1 | Step 20 | Loss: nan | Perplexity: nan
+2026-03-17 10:22:35,939 [INFO] Epoch 1 complete | Loss: nan | Time: 207.6s
+2026-03-17 10:22:46,973 [INFO] Validation | Loss: nan | Perplexity: nan
+2026-03-17 10:22:48,977 [INFO] [Trainer] Checkpoint saved: checkpoints/alan_v4_epoch1.pt
+2026-03-17 10:22:48,978 [INFO] 
+--- Epoch 2/2 ---
+2026-03-17 10:22:48,984 [INFO] Epoch 2 complete | Loss: 0.0000 | Time: 0.0s
+2026-03-17 10:23:00,735 [INFO] Validation | Loss: nan | Perplexity: nan
+2026-03-17 10:23:01,626 [INFO] [Trainer] Checkpoint saved: checkpoints/alan_v4_epoch2.pt
+2026-03-17 10:23:02,580 [INFO] [Trainer] Checkpoint saved: checkpoints/alan_v4_epoch2_best.pt
+2026-03-17 10:23:02,584 [INFO] 
+Training complete! Log saved to checkpoints/training_log.json
+2026-03-17 10:23:02,586 [INFO] 
+Final training summary:
+2026-03-17 10:23:02,586 [INFO]   Epoch 1: train_loss=nan, val_loss=nan
+2026-03-17 10:23:02,586 [INFO]   Epoch 2: train_loss=0.0000, val_loss=nan
+2026-03-17 10:23:05,629 [INFO] [ALAN] No GPU detected — running on CPU
+2026-03-17 10:23:09,656 [INFO] HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-17 10:23:09,676 [INFO] HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 10:23:09,697 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-17 10:23:09,713 [INFO] HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 10:23:09,732 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-17 10:23:10,170 [INFO] [Tokenizer] GPT-2 tokenizer loaded: vocab_size=50257
+2026-03-17 10:23:11,718 [INFO] [ALAN] Model initialized: 90,307,510 parameters
+2026-03-17 10:23:11,721 [INFO] 
+Loading training data from: data/generated
+2026-03-17 10:23:12,024 [INFO] [Dataset] Loaded 396 examples (phase=all)
+2026-03-17 10:23:12,025 [INFO] Train: 357 | Val: 39
+2026-03-17 10:23:16,059 [INFO] [Trainer] Initialized on cpu
+2026-03-17 10:23:16,059 [INFO] [Trainer] Parameters: 90,307,510
+2026-03-17 10:23:16,059 [INFO] [Trainer] Output dir: checkpoints
+2026-03-17 10:23:16,060 [INFO] ============================================================
+2026-03-17 10:23:16,060 [INFO] ALAN v4 Training Started
+2026-03-17 10:23:16,060 [INFO]   Device       : cpu
+2026-03-17 10:23:16,060 [INFO]   Epochs       : 2
+2026-03-17 10:23:16,060 [INFO]   Batch size   : 2
+2026-03-17 10:23:16,060 [INFO]   Train samples: 357
+2026-03-17 10:23:16,060 [INFO]   Val samples  : 39
+2026-03-17 10:23:16,060 [INFO]   Total steps  : 89
+2026-03-17 10:23:16,060 [INFO] ============================================================
+2026-03-17 10:23:16,060 [INFO] 
+--- Epoch 1/2 ---
+2026-03-17 10:24:59,940 [INFO]   Epoch 1 | Step 10 | Loss: nan | Perplexity: nan
+2026-03-17 10:26:43,643 [INFO]   Epoch 1 | Step 20 | Loss: nan | Perplexity: nan
+2026-03-17 10:26:43,676 [INFO] Epoch 1 complete | Loss: nan | Time: 207.6s
+2026-03-17 10:26:55,789 [INFO] Validation | Loss: nan | Perplexity: nan
+2026-03-17 10:26:57,553 [INFO] [Trainer] Checkpoint saved: checkpoints/alan_v4_epoch1.pt
+2026-03-17 10:26:57,553 [INFO] 
+--- Epoch 2/2 ---
+2026-03-17 10:26:57,561 [INFO] Epoch 2 complete | Loss: 0.0000 | Time: 0.0s
+2026-03-17 10:27:09,460 [INFO] Validation | Loss: nan | Perplexity: nan
+2026-03-17 10:27:10,330 [INFO] [Trainer] Checkpoint saved: checkpoints/alan_v4_epoch2.pt
+2026-03-17 10:27:11,188 [INFO] [Trainer] Checkpoint saved: checkpoints/alan_v4_epoch2_best.pt
+2026-03-17 10:27:11,192 [INFO] 
+Training complete! Log saved to checkpoints/training_log.json
+2026-03-17 10:27:11,194 [INFO] 
+Final training summary:
+2026-03-17 10:27:11,194 [INFO]   Epoch 1: train_loss=nan, val_loss=nan
+2026-03-17 10:27:11,194 [INFO]   Epoch 2: train_loss=0.0000, val_loss=nan
+2026-03-17 10:28:32,982 [INFO] [ALAN] No GPU detected — running on CPU
+2026-03-17 10:28:35,925 [INFO] HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-17 10:28:35,948 [INFO] HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 10:28:35,966 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-17 10:28:35,983 [INFO] HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 10:28:36,007 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-17 10:28:36,630 [INFO] [Tokenizer] GPT-2 tokenizer loaded: vocab_size=50257
+2026-03-17 10:28:38,205 [INFO] [ALAN] Model initialized: 90,307,510 parameters
+2026-03-17 10:28:38,207 [INFO] 
+Loading training data from: data/generated
+2026-03-17 10:28:38,220 [INFO] [Dataset] Loaded 396 examples (phase=all)
+2026-03-17 10:28:38,221 [INFO] Train: 357 | Val: 39
+2026-03-17 10:28:42,782 [INFO] [Trainer] Initialized on cpu
+2026-03-17 10:28:42,783 [INFO] [Trainer] Parameters: 90,307,510
+2026-03-17 10:28:42,783 [INFO] [Trainer] Output dir: checkpoints
+2026-03-17 10:28:42,783 [INFO] ============================================================
+2026-03-17 10:28:42,783 [INFO] ALAN v4 Training Started
+2026-03-17 10:28:42,783 [INFO]   Device       : cpu
+2026-03-17 10:28:42,783 [INFO]   Epochs       : 2
+2026-03-17 10:28:42,783 [INFO]   Batch size   : 2
+2026-03-17 10:28:42,783 [INFO]   Train samples: 357
+2026-03-17 10:28:42,783 [INFO]   Val samples  : 39
+2026-03-17 10:28:42,783 [INFO]   Total steps  : 89
+2026-03-17 10:28:42,783 [INFO] ============================================================
+2026-03-17 10:28:42,783 [INFO] 
+--- Epoch 1/2 ---
+2026-03-17 10:34:46,224 [INFO] [ALAN] No GPU detected — running on CPU
+2026-03-17 10:34:49,378 [INFO] HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-17 10:34:49,406 [INFO] HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 10:34:49,431 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-17 10:34:49,459 [INFO] HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+2026-03-17 10:34:49,491 [INFO] HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-17 10:34:50,023 [INFO] [Tokenizer] GPT-2 tokenizer loaded: vocab_size=50257
+2026-03-17 10:34:52,208 [INFO] [ALAN] Model initialized: 90,307,510 parameters
+2026-03-17 10:34:52,240 [INFO] [Dataset] Loaded 396 examples (phase=all)
+2026-03-17 10:35:56,166 [INFO] Epoch 1 complete | Loss: 10.9047 | Time: 433.4s
+2026-03-17 10:36:07,901 [INFO] Validation | Loss: nan | Perplexity: nan
+2026-03-17 10:36:10,937 [INFO] [Trainer] Checkpoint saved: checkpoints/alan_v4_epoch1.pt
+2026-03-17 10:36:11,821 [INFO] [Trainer] Checkpoint saved: checkpoints/alan_v4_epoch1_best.pt
+2026-03-17 10:36:11,821 [INFO] 
+--- Epoch 2/2 ---

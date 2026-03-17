@@ -1,0 +1,163 @@
+{
+  "passed": 31,
+  "failed": 0,
+  "total": 31,
+  "success": true,
+  "results": [
+    {
+      "test": "Device auto-detection",
+      "status": "PASS",
+      "details": "Device: cpu"
+    },
+    {
+      "test": "Model build (small)",
+      "status": "PASS",
+      "details": "90,307,510 params"
+    },
+    {
+      "test": "Forward pass (text only)",
+      "status": "PASS",
+      "details": "Shape: torch.Size([2, 16, 50357]) (vocab=50257)"
+    },
+    {
+      "test": "Forward pass (text + image)",
+      "status": "PASS",
+      "details": "Shape: torch.Size([2, 16, 50357]) (vocab=50257)"
+    },
+    {
+      "test": "Module weights present",
+      "status": "PASS",
+      "details": "['reasoning', 'creativity', 'curiosity', 'emotional', 'memory', 'meta']"
+    },
+    {
+      "test": "Parameter count reasonable",
+      "status": "PASS",
+      "details": "90,307,510 parameters"
+    },
+    {
+      "test": "Topic extraction",
+      "status": "PASS",
+      "details": "Topic: help_understand_python"
+    },
+    {
+      "test": "Topic shift detection",
+      "status": "PASS",
+      "details": "Shift: True, New topic: actually_need_help"
+    },
+    {
+      "test": "Recency decay (old topics fade)",
+      "status": "PASS",
+      "details": "Active topics: ['help_understand_python', 'property', 'actually_need_help', 'what_skills_should', 'what_format_best']"
+    },
+    {
+      "test": "Explicit reference detection",
+      "status": "PASS",
+      "details": "Explicit ref: True"
+    },
+    {
+      "test": "Attention bias generation",
+      "status": "PASS",
+      "details": "Bias shape: torch.Size([32, 32])"
+    },
+    {
+      "test": "Context reset",
+      "status": "PASS",
+      "details": "Turn count after reset: 0"
+    },
+    {
+      "test": "Guardrails file loaded",
+      "status": "PASS",
+      "details": "Size: 11718 chars"
+    },
+    {
+      "test": "System context defined",
+      "status": "PASS",
+      "details": "Size: 1014 chars"
+    },
+    {
+      "test": "Awareness prompt generation",
+      "status": "PASS",
+      "details": "Prompt length: 1584"
+    },
+    {
+      "test": "Safety check: good response passes",
+      "status": "PASS",
+      "details": "[]"
+    },
+    {
+      "test": "Safety check: filler opener caught",
+      "status": "PASS",
+      "details": "[\"Filler opener detected: 'certainly!'\"]"
+    },
+    {
+      "test": "Safety check: robotic refusal caught",
+      "status": "PASS",
+      "details": "[\"Robotic refusal pattern detected: 'i cannot and will not'\"]"
+    },
+    {
+      "test": "Safety check: guardrails reference caught",
+      "status": "PASS",
+      "details": "[\"Verbatim guardrails reference detected: 'according to my guardrails'\"]"
+    },
+    {
+      "test": "Training data directory exists",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "test": "File: reasoning_examples.jsonl",
+      "status": "PASS",
+      "details": "49 examples"
+    },
+    {
+      "test": "File: conversation_examples.jsonl",
+      "status": "PASS",
+      "details": "50 examples"
+    },
+    {
+      "test": "File: emotional_examples.jsonl",
+      "status": "PASS",
+      "details": "30 examples"
+    },
+    {
+      "test": "File: safety_examples.jsonl",
+      "status": "PASS",
+      "details": "30 examples"
+    },
+    {
+      "test": "Combined training data",
+      "status": "PASS",
+      "details": "199 total examples"
+    },
+    {
+      "test": "Generation produces new tokens",
+      "status": "PASS",
+      "details": "Input: 8 tokens \u2192 Output: 28 tokens"
+    },
+    {
+      "test": "Temperature variation works",
+      "status": "PASS",
+      "details": "Both generated 18 tokens"
+    },
+    {
+      "test": "Vision encoder produces tokens",
+      "status": "PASS",
+      "details": "Vision tokens shape: torch.Size([1, 197, 512])"
+    },
+    {
+      "test": "Text+image forward pass",
+      "status": "PASS",
+      "details": "Output shape: torch.Size([1, 16, 50357]) (vocab=50257)"
+    },
+    {
+      "test": "Full pipeline: context \u2192 awareness \u2192 generate",
+      "status": "PASS",
+      "details": "Generated 10 new tokens"
+    },
+    {
+      "test": "Full pipeline: safety check passes",
+      "status": "PASS",
+      "details": "[]"
+    }
+  ]
+}

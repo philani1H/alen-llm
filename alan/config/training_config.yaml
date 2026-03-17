@@ -1,0 +1,61 @@
+# ALAN v4 — Training Configuration
+# ECONX GROUP (PTY) LTD
+
+training:
+  # Hardware
+  device: "auto"              # auto-detects: cuda > mps > cpu
+  mixed_precision: true       # fp16/bf16 when CUDA available
+  gradient_checkpointing: true
+
+  # Batch settings
+  batch_size: 8
+  gradient_accumulation_steps: 4
+  effective_batch_size: 32
+
+  # Optimization
+  optimizer: "adamw"
+  learning_rate: 3.0e-4
+  weight_decay: 0.1
+  beta1: 0.9
+  beta2: 0.95
+  epsilon: 1.0e-8
+  max_grad_norm: 1.0
+
+  # Schedule
+  lr_scheduler: "cosine_with_warmup"
+  warmup_steps: 1000
+  max_steps: 100000
+
+  # Curriculum phases
+  curriculum:
+    phase1_foundation:
+      steps: 30000
+      data: ["basic_language", "simple_reasoning", "factual_knowledge"]
+      description: "Basic language, 1-2 step reasoning, factual knowledge"
+    phase2_capability:
+      steps: 30000
+      data: ["multi_step_reasoning", "code", "conversation", "topic_tracking"]
+      description: "Multi-step reasoning, code, conversation management"
+    phase3_advanced:
+      steps: 25000
+      data: ["complex_reasoning", "wisdom", "emotional_intelligence", "engagement"]
+      description: "Complex reasoning, cross-domain, nuanced EI, hooks"
+    phase4_alignment:
+      steps: 15000
+      data: ["guardrails", "calibration", "adversarial", "personality"]
+      description: "Safety alignment, calibration, edge cases, RLHF"
+
+  # Checkpointing
+  save_every: 1000
+  eval_every: 500
+  checkpoint_dir: "checkpoints/"
+  keep_last_n: 5
+
+evaluation:
+  benchmarks:
+    - reasoning_accuracy
+    - topic_tracking_accuracy
+    - confidence_calibration
+    - engagement_quality
+    - safety_score
+  eval_samples: 1000
