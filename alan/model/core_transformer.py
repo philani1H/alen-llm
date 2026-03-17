@@ -677,6 +677,7 @@ class Alan(nn.Module):
 
         metadata = {
             "module_weights": {k: v.detach() for k, v in module_weights.items()},
+            "module_weights_raw": module_weights,
             "num_parameters": self.count_parameters(),
             "reasoning": reasoning_meta,
             "creativity": creativity_meta,
@@ -697,6 +698,7 @@ class Alan(nn.Module):
         temperature: float = 0.7,
         top_p: float = 0.9,
         top_k: int = 50,
+        use_dynamic: bool = False,
         images: Optional[torch.Tensor] = None,
         context_bias: Optional[torch.Tensor] = None,
         stop_tokens: Optional[list] = None,
@@ -712,8 +714,15 @@ class Alan(nn.Module):
             # Truncate to max context window
             ctx = generated[:, -self.config.max_seq_len:]
 
-            logits, _ = self.forward(ctx, images=images, context_bias=context_bias)
-            next_logits = logits[:, -1, :] / max(temperature, 1e-8)
+            logits, meta = self.forward(ctx, images=images, context_bias=context_bias)
+            if use_dynamic and isinstance(meta, dict) and isinstance(meta.get("temperature"), dict):
+                t = float(meta["temperature"].get("temperature", temperature))
+                p = float(meta["temperature"].get("top_p", top_p))
+            else:
+                t = temperature
+                p = top_p
+
+            next_logits = logits[:, -1, :] / max(t, 1e-8)
 
             # Top-k filtering
             if top_k > 0:
@@ -721,10 +730,10 @@ class Alan(nn.Module):
                 next_logits[next_logits < v[:, [-1]]] = float("-inf")
 
             # Top-p (nucleus) filtering
-            if top_p < 1.0:
+            if p < 1.0:
                 sorted_logits, sorted_idx = torch.sort(next_logits, descending=True)
                 cumulative_probs = torch.cumsum(F.softmax(sorted_logits, dim=-1), dim=-1)
-                sorted_idx_to_remove = cumulative_probs - F.softmax(sorted_logits, dim=-1) > top_p
+                sorted_idx_to_remove = cumulative_probs - F.softmax(sorted_logits, dim=-1) > p
                 sorted_logits[sorted_idx_to_remove] = float("-inf")
                 next_logits = torch.zeros_like(next_logits).scatter_(
                     1, sorted_idx, sorted_logits

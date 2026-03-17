@@ -37,6 +37,7 @@ from model.memory.consolidation import MemoryConsolidator
 from model.modules.creativity_engine import CreativityEngine
 from model.modules.curiosity_module import CuriosityModule
 from model.modules.feedback_integration import FeedbackIntegration
+from model.modules.emotional_intelligence import EMOTIONAL_TONES
 from model.output.dynamic_temperature import DynamicTemperatureController
 from model.output.output_controller import OutputController
 from model.output.engagement_hooks import EngagementHookSystem
@@ -65,8 +66,11 @@ class TestResults:
             self.passed += 1
         else:
             self.failed += 1
-        icon = "✓" if passed else "✗"
-        print(f"  [{icon}] {name}")
+        try:
+            icon = "OK" if passed else "X"
+            print(f"  [{icon}] {name}")
+        except UnicodeEncodeError:
+            sys.stdout.write(f"  [{'OK' if passed else 'X'}] {name}\n")
         if details and not passed:
             print(f"      Details: {details}")
 
@@ -319,6 +323,28 @@ def test_training_data(results: TestResults):
             )
         else:
             results.record(f"File: {filename}", False, "Not found (may still be generating)")
+
+    emotional_path = data_dir / "emotional_examples.jsonl"
+    if emotional_path.exists():
+        tones = set()
+        try:
+            with open(emotional_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    obj = json.loads(line)
+                    tone = str(obj.get("user_tone", "")).strip().lower()
+                    if tone:
+                        tones.add(tone)
+            missing = sorted(list(tones - set(EMOTIONAL_TONES)))
+            results.record(
+                "Emotional tones covered by model",
+                len(missing) == 0,
+                f"missing={missing}" if missing else f"tones={sorted(list(tones))}"
+            )
+        except Exception as e:
+            results.record("Emotional tones covered by model", False, str(e))
 
     # Check combined file
     combined = data_dir / "alan_training_data_combined.jsonl"

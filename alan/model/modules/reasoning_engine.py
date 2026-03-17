@@ -99,6 +99,8 @@ class ReasoningEngine(nn.Module):
         return x, {
             "confidence": confidence.mean().item(),
             "verification_gate": verify_gate.mean().item(),
+            "confidence_tensor": confidence,
+            "verification_gate_tensor": verify_gate,
         }
 
 

@@ -12,7 +12,17 @@ import torch.nn.functional as F
 from typing import Optional, Dict, Tuple
 
 
-EMOTIONAL_TONES = ["neutral", "frustrated", "excited", "confused", "sad", "happy", "anxious"]
+EMOTIONAL_TONES = [
+    "neutral",
+    "frustrated",
+    "excited",
+    "confused",
+    "sad",
+    "happy",
+    "anxious",
+    "overwhelmed",
+    "proud",
+]
 
 
 class EmotionalIntelligence(nn.Module):
@@ -59,6 +69,7 @@ class EmotionalIntelligence(nn.Module):
         tone_logits = self.tone_classifier(summary)
         tone_probs = F.softmax(tone_logits, dim=-1)
         detected_tone = tone_probs.argmax(dim=-1)
+        tone_confidence = tone_probs.max(dim=-1).values
 
         # Modulate hidden states with emotional context
         tone_context = tone_probs.unsqueeze(1).expand(-1, x.shape[1], -1)
@@ -77,12 +88,18 @@ class EmotionalIntelligence(nn.Module):
         x = x + blend * (modulated - x)
         x = self.norm(x)
 
+        detected_tones = [EMOTIONAL_TONES[i] for i in detected_tone.detach().cpu().tolist()]
+
         return x, {
-            "detected_tone": EMOTIONAL_TONES[detected_tone[0].item()],
-            "tone_confidence": tone_probs.max().item(),
-            "empathy": engagement[0, 0].item(),
-            "directness": engagement[0, 1].item(),
-            "encouragement": engagement[0, 2].item(),
+            "detected_tone": detected_tones[0] if detected_tones else "neutral",
+            "detected_tones": detected_tones,
+            "tone_confidence": tone_confidence.mean().item(),
+            "empathy": engagement[:, 0].mean().item(),
+            "directness": engagement[:, 1].mean().item(),
+            "encouragement": engagement[:, 2].mean().item(),
+            "tone_logits": tone_logits,
+            "tone_probs": tone_probs,
+            "engagement": engagement,
         }
 
 
@@ -141,33 +158,37 @@ class MetaReasoning(nn.Module):
         """
         summary = x.mean(dim=1)
 
-        contradiction_score = 0.0
-        completeness_score = 1.0
-        confidence = 0.5
+        contradiction_score = torch.zeros(summary.shape[0], device=summary.device)
+        completeness_score = torch.ones(summary.shape[0], device=summary.device)
+        confidence = torch.full((summary.shape[0],), 0.5, device=summary.device)
 
         for iteration in range(self.max_iterations):
             # Check for contradictions with input
             if input_repr is not None:
                 input_summary = input_repr.mean(dim=1)
                 combined = torch.cat([summary, input_summary], dim=-1)
-                contradiction_score = self.contradiction_detector(combined).mean().item()
+                contradiction_score = self.contradiction_detector(combined).squeeze(-1)
             else:
-                contradiction_score = 0.0
+                contradiction_score = torch.zeros(summary.shape[0], device=summary.device)
 
-            completeness_score = self.completeness_checker(summary).mean().item()
-            confidence = self.confidence_scorer(summary).mean().item()
+            completeness_score = self.completeness_checker(summary).squeeze(-1)
+            confidence = self.confidence_scorer(summary).squeeze(-1)
 
             # If contradiction detected or incomplete, refine
-            if contradiction_score > 0.5 or completeness_score < 0.5:
+            needs_refine = (contradiction_score > 0.5) | (completeness_score < 0.5)
+            if needs_refine.any():
                 x = x + self.refinement(x)
                 x = self.norm(x)
                 summary = x.mean(dim=1)
             else:
-                break  # Check passed
+                break
 
         return x, {
-            "contradiction_score": contradiction_score,
-            "completeness_score": completeness_score,
-            "confidence": confidence,
+            "contradiction_score": contradiction_score.mean().item(),
+            "completeness_score": completeness_score.mean().item(),
+            "confidence": confidence.mean().item(),
             "iterations": iteration + 1,
+            "contradiction_score_tensor": contradiction_score,
+            "completeness_score_tensor": completeness_score,
+            "confidence_tensor": confidence,
         }

@@ -62,18 +62,56 @@ class AlanInferenceEngine:
         self.awareness = get_awareness_layer()
         self.conversations: Dict[str, dict] = {}  # session_id → {history, atc}
         self._init_llm()
+        self._init_local_model()
 
     def _init_llm(self):
         """Initialize the LLM backend."""
         try:
             from openai import OpenAI
-            self.client = OpenAI()
+            api_key = os.environ.get("OPENAI_API_KEY", "").strip()
+            if not api_key:
+                self.client = None
+                self.llm_available = False
+                logger.info("[ALAN] OpenAI key not set — skipping OpenAI backend")
+                return
+            self.client = OpenAI(api_key=api_key)
             self.llm_available = True
             logger.info("[ALAN] LLM backend initialized (OpenAI API)")
         except Exception as e:
             self.client = None
             self.llm_available = False
             logger.warning(f"[ALAN] LLM backend not available: {e}")
+
+    def _init_local_model(self):
+        try:
+            import torch
+            from transformers import GPT2Tokenizer
+            from model.core_transformer import build_alan, get_device
+
+            self.device = get_device()
+            model_size = os.environ.get("ALAN_MODEL_SIZE", "small")
+            self.local_model, self.local_config = build_alan(size=model_size, device=self.device, vision=False)
+            self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+            self.tokenizer.pad_token = self.tokenizer.eos_token
+
+            checkpoint = os.environ.get("ALAN_CHECKPOINT")
+            if checkpoint:
+                ckpt_path = Path(checkpoint)
+                if ckpt_path.exists():
+                    payload = torch.load(str(ckpt_path), map_location=self.device)
+                    state = payload.get("model_state_dict", payload)
+                    self.local_model.load_state_dict(state, strict=False)
+                    logger.info(f"[ALAN] Local model checkpoint loaded: {ckpt_path}")
+
+            self.local_available = True
+            logger.info(f"[ALAN] Local weights backend initialized on {self.device}")
+        except Exception as e:
+            self.device = None
+            self.local_model = None
+            self.local_config = None
+            self.tokenizer = None
+            self.local_available = False
+            logger.warning(f"[ALAN] Local weights backend not available: {e}")
 
     def get_or_create_session(self, session_id: str) -> dict:
         """Get or create a conversation session."""
@@ -117,13 +155,22 @@ class AlanInferenceEngine:
         )
 
         # Step 3: Generate response
-        if self.llm_available:
+        prefer_local = os.environ.get("ALAN_PREFER_LOCAL", "0").strip() in {"1", "true", "TRUE", "yes", "YES"}
+        if prefer_local and self.local_available:
+            response_text = self._generate_with_local_model(
+                awareness_prompt=awareness_prompt,
+            )
+        elif self.llm_available:
             response_text = self._generate_with_llm(
                 awareness_prompt=awareness_prompt,
                 history=history,
                 user_message=user_message,
                 image_data=image_data,
                 image_type=image_type,
+            )
+        elif self.local_available:
+            response_text = self._generate_with_local_model(
+                awareness_prompt=awareness_prompt,
             )
         else:
             response_text = self._generate_fallback(user_message, ctx_metadata)
@@ -210,6 +257,28 @@ class AlanInferenceEngine:
             f"I can see you're asking about {topic}. "
             f"To get full responses, please ensure the API is configured correctly."
         )
+
+    def _generate_with_local_model(self, awareness_prompt: str) -> str:
+        if not self.local_available or self.local_model is None or self.tokenizer is None:
+            return "Local model is not available."
+        try:
+            prompt = awareness_prompt.strip() + "\nALAN:"
+            input_ids = self.tokenizer.encode(prompt, return_tensors="pt").to(self.device)
+            generated = self.local_model.generate(
+                input_ids,
+                max_new_tokens=256,
+                temperature=0.7,
+                top_p=0.9,
+                top_k=50,
+                use_dynamic=True,
+            )
+            decoded = self.tokenizer.decode(generated[0], skip_special_tokens=True)
+            if decoded.startswith(prompt):
+                decoded = decoded[len(prompt):]
+            return decoded.strip()
+        except Exception as e:
+            logger.error(f"[ALAN] Local generation failed: {e}")
+            return "Local generation failed."
 
     def reset_session(self, session_id: str):
         """Reset a conversation session."""

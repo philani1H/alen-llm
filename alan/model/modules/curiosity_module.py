@@ -124,4 +124,8 @@ class CuriosityModule(nn.Module):
             "gap_probs": gap_probs[0].detach().tolist(),
             "ambiguity": ambiguity.mean().item(),
             "should_ask": should_ask.mean().item(),
+            "gap_probs_tensor": gap_probs,
+            "gap_level_tensor": gap_level,
+            "ambiguity_tensor": ambiguity,
+            "should_ask_tensor": should_ask,
         }

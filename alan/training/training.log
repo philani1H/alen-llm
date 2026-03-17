@@ -189,3 +189,72 @@ Loading training data from: data/generated
 2026-03-17 10:36:11,821 [INFO] [Trainer] Checkpoint saved: checkpoints/alan_v4_epoch1_best.pt
 2026-03-17 10:36:11,821 [INFO] 
 --- Epoch 2/2 ---
+2026-03-17 20:06:01,372 [INFO] [ALAN] Memory and Feedback API endpoints registered
+2026-03-17 20:06:01,376 [INFO] [ALAN Guardrails] Awareness layer initialized
+2026-03-17 20:06:13,520 [INFO] [ALAN] OpenAI key not set — skipping OpenAI backend
+2026-03-17 20:06:33,221 [INFO] [ALAN] No GPU detected — running on CPU
+2026-03-17 20:06:38,380 [INFO] [ALAN] Model initialized: 55,271,791 parameters
+2026-03-17 20:06:52,322 [INFO] [ALAN] Local weights backend initialized on cpu
+2026-03-17 20:06:52,339 [INFO] 
+==================================================
+2026-03-17 20:06:52,340 [INFO]   ALAN v4 — API Server Starting
+2026-03-17 20:06:52,342 [INFO]   ECONX GROUP (PTY) LTD
+2026-03-17 20:06:52,344 [INFO]   http://0.0.0.0:5000
+2026-03-17 20:06:52,345 [INFO] ==================================================
+
+2026-03-17 20:06:52,474 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.207.244:5000
+2026-03-17 20:06:52,478 [INFO] [33mPress CTRL+C to quit[0m
+2026-03-17 20:07:38,927 [INFO] [ALAN] Memory and Feedback API endpoints registered
+2026-03-17 20:07:38,984 [INFO] [ALAN Guardrails] Awareness layer initialized
+2026-03-17 20:07:42,977 [INFO] [ALAN] OpenAI key not set — skipping OpenAI backend
+2026-03-17 20:08:07,813 [INFO] [ALAN] No GPU detected — running on CPU
+2026-03-17 20:08:07,817 [INFO] [ALAN] Initializing local weights model: size=small device=cpu
+2026-03-17 20:08:14,429 [INFO] [ALAN] Model initialized: 55,271,791 parameters
+2026-03-17 20:08:14,462 [INFO] [ALAN] Local weights model constructed
+2026-03-17 20:08:29,876 [INFO] [ALAN] Local weights backend initialized on cpu
+2026-03-17 20:08:29,899 [INFO] 
+==================================================
+2026-03-17 20:08:29,913 [INFO]   ALAN v4 — API Server Starting
+2026-03-17 20:08:29,917 [INFO]   ECONX GROUP (PTY) LTD
+2026-03-17 20:08:29,923 [INFO]   http://0.0.0.0:5000
+2026-03-17 20:08:29,926 [INFO] ==================================================
+
+2026-03-17 20:08:30,051 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.207.244:5000
+2026-03-17 20:08:30,067 [INFO] [33mPress CTRL+C to quit[0m
+2026-03-17 20:09:45,338 [INFO] [ALAN] Memory and Feedback API endpoints registered
+2026-03-17 20:09:45,341 [INFO] [ALAN Guardrails] Awareness layer initialized
+2026-03-17 20:09:52,108 [INFO] [ALAN] OpenAI key not set — skipping OpenAI backend
+2026-03-17 20:10:15,628 [INFO] [ALAN] No GPU detected — running on CPU
+2026-03-17 20:10:15,646 [INFO] [ALAN] Initializing local weights model: size=small device=cpu
+2026-03-17 20:10:25,500 [INFO] [ALAN] Model initialized: 55,271,791 parameters
+2026-03-17 20:10:25,587 [INFO] [ALAN] Local weights model constructed: params=55,271,791
+2026-03-17 20:10:52,775 [INFO] [ALAN] Local weights backend initialized on cpu
+2026-03-17 20:10:52,814 [INFO] 
+==================================================
+2026-03-17 20:10:52,815 [INFO]   ALAN v4 — API Server Starting
+2026-03-17 20:10:52,817 [INFO]   ECONX GROUP (PTY) LTD
+2026-03-17 20:10:52,817 [INFO]   http://0.0.0.0:5001
+2026-03-17 20:10:52,818 [INFO] ==================================================
+
+2026-03-17 20:10:53,050 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.207.244:5001
+2026-03-17 20:10:53,053 [INFO] [33mPress CTRL+C to quit[0m
+2026-03-17 20:12:07,803 [INFO] [ALAN] Memory and Feedback API endpoints registered
+2026-03-17 20:12:07,823 [INFO] [ALAN Guardrails] Awareness layer initialized
+2026-03-17 20:12:13,916 [INFO] [ALAN] OpenAI key not set — skipping OpenAI backend
+2026-03-17 20:12:36,729 [INFO] [ALAN] No GPU detected — running on CPU
+2026-03-17 20:12:36,730 [INFO] [ALAN] Initializing local weights model: size=large device=cpu
+2026-03-17 20:14:22,009 [INFO] [ALAN] Memory and Feedback API endpoints registered
+2026-03-17 20:14:22,030 [INFO] [ALAN] Server args: model_size=large prefer_local=True
+2026-03-17 20:14:22,039 [INFO] [ALAN Guardrails] Awareness layer initialized
+2026-03-17 20:14:28,543 [INFO] [ALAN] OpenAI key not set — skipping OpenAI backend
+2026-03-17 20:14:54,965 [INFO] [ALAN] No GPU detected — running on CPU
+2026-03-17 20:14:54,967 [INFO] [ALAN] Initializing local weights model: size=large device=cpu

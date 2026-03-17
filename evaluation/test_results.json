@@ -1,0 +1,213 @@
+{
+  "passed": 39,
+  "failed": 2,
+  "total": 41,
+  "success": false,
+  "results": [
+    {
+      "test": "Device auto-detection",
+      "status": "PASS",
+      "details": "Device: cpu"
+    },
+    {
+      "test": "Model build (small)",
+      "status": "PASS",
+      "details": "99,528,559 params"
+    },
+    {
+      "test": "Forward pass (text only)",
+      "status": "PASS",
+      "details": "Shape: torch.Size([2, 16, 50357]) (vocab=50257)"
+    },
+    {
+      "test": "Forward pass (text + image)",
+      "status": "FAIL",
+      "details": "[enforce fail at alloc_cpu.cpp:121] data. DefaultCPUAllocator: not enough memory: you tried to allocate 3489792 bytes."
+    },
+    {
+      "test": "Module weights present",
+      "status": "PASS",
+      "details": "['reasoning', 'creativity', 'curiosity', 'emotional', 'memory', 'meta']"
+    },
+    {
+      "test": "Parameter count reasonable",
+      "status": "PASS",
+      "details": "99,528,559 parameters"
+    },
+    {
+      "test": "Topic extraction",
+      "status": "PASS",
+      "details": "Topic: help_understand_python"
+    },
+    {
+      "test": "Topic shift detection",
+      "status": "PASS",
+      "details": "Shift: True, New topic: actually_need_help"
+    },
+    {
+      "test": "Recency decay (old topics fade)",
+      "status": "PASS",
+      "details": "Active topics: ['help_understand_python', 'property', 'actually_need_help', 'what_skills_should', 'what_format_best']"
+    },
+    {
+      "test": "Explicit reference detection",
+      "status": "PASS",
+      "details": "Explicit ref: True"
+    },
+    {
+      "test": "Attention bias generation",
+      "status": "PASS",
+      "details": "Bias shape: torch.Size([32, 32])"
+    },
+    {
+      "test": "Context reset",
+      "status": "PASS",
+      "details": "Turn count after reset: 0"
+    },
+    {
+      "test": "Guardrails file loaded",
+      "status": "PASS",
+      "details": "Size: 11718 chars"
+    },
+    {
+      "test": "System context defined",
+      "status": "PASS",
+      "details": "Size: 1014 chars"
+    },
+    {
+      "test": "Awareness prompt generation",
+      "status": "PASS",
+      "details": "Prompt length: 1584"
+    },
+    {
+      "test": "Safety check: good response passes",
+      "status": "PASS",
+      "details": "[]"
+    },
+    {
+      "test": "Safety check: filler opener caught",
+      "status": "PASS",
+      "details": "[\"Filler opener detected: 'certainly!'\"]"
+    },
+    {
+      "test": "Safety check: robotic refusal caught",
+      "status": "PASS",
+      "details": "[\"Robotic refusal pattern detected: 'i cannot and will not'\"]"
+    },
+    {
+      "test": "Safety check: guardrails reference caught",
+      "status": "PASS",
+      "details": "[\"Verbatim guardrails reference detected: 'according to my guardrails'\"]"
+    },
+    {
+      "test": "Training data directory exists",
+      "status": "FAIL",
+      "details": "Not found: data\\generated"
+    },
+    {
+      "test": "Generation produces new tokens",
+      "status": "PASS",
+      "details": "Input: 8 tokens \u2192 Output: 28 tokens"
+    },
+    {
+      "test": "Temperature variation works",
+      "status": "PASS",
+      "details": "Both generated 18 tokens"
+    },
+    {
+      "test": "Vision encoder produces tokens",
+      "status": "PASS",
+      "details": "Vision tokens shape: torch.Size([1, 197, 512])"
+    },
+    {
+      "test": "Text+image forward pass",
+      "status": "PASS",
+      "details": "Output shape: torch.Size([1, 16, 50357]) (vocab=50257)"
+    },
+    {
+      "test": "Full pipeline: context \u2192 awareness \u2192 generate",
+      "status": "PASS",
+      "details": "Generated 10 new tokens"
+    },
+    {
+      "test": "Full pipeline: safety check passes",
+      "status": "PASS",
+      "details": "[]"
+    },
+    {
+      "test": "CreativityEngine forward",
+      "status": "PASS",
+      "details": "candidates=3, gate=0.500"
+    },
+    {
+      "test": "CuriosityModule forward",
+      "status": "PASS",
+      "details": "gap=no_gap, should_ask=0.490"
+    },
+    {
+      "test": "FeedbackIntegration forward",
+      "status": "PASS",
+      "details": "type=no_correction, rehearsal=0.514"
+    },
+    {
+      "test": "PatternStore store/stats",
+      "status": "PASS",
+      "details": "stored=True, patterns=1"
+    },
+    {
+      "test": "KnowledgeGraph add/connect",
+      "status": "PASS",
+      "details": "nodes=2, edges=1"
+    },
+    {
+      "test": "MemoryConsolidator consolidate",
+      "status": "PASS",
+      "details": "retained=2, discarded=0"
+    },
+    {
+      "test": "DynamicTemperature forward",
+      "status": "PASS",
+      "details": "temp=0.902, top_p=0.907"
+    },
+    {
+      "test": "OutputController forward",
+      "status": "PASS",
+      "details": "strategy=empathetic, depth=0.450"
+    },
+    {
+      "test": "EngagementHooks forward",
+      "status": "PASS",
+      "details": "hook=challenge_hook, intensity=0.249"
+    },
+    {
+      "test": "CurriculumScheduler phases",
+      "status": "PASS",
+      "details": "step 0=foundation, step 500=capability"
+    },
+    {
+      "test": "QualityScorer scoring",
+      "status": "PASS",
+      "details": "overall=0.725"
+    },
+    {
+      "test": "All module metadata present",
+      "status": "PASS",
+      "details": "Found 7/7: ['reasoning', 'creativity', 'curiosity', 'emotional_intelligence', 'meta_reasoning', 'temperature', 'output_strategy']"
+    },
+    {
+      "test": "Reasoning metadata valid",
+      "status": "PASS",
+      "details": "confidence=0.49880528450012207"
+    },
+    {
+      "test": "Output strategy selected",
+      "status": "PASS",
+      "details": "strategy=clarifying"
+    },
+    {
+      "test": "Dynamic temperature computed",
+      "status": "PASS",
+      "details": "temp=0.922512412071228"
+    }
+  ]
+}

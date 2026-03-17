@@ -148,4 +148,9 @@ class OutputController(nn.Module):
             "engagement_level": engagement.mean().item(),
             "recommended_temperature": strategy_config["temperature"],
             "recommended_hooks": strategy_config["hooks"],
+            "strategy_logits": strategy_logits,
+            "strategy_probs_tensor": strategy_probs,
+            "strategy_idx": strategy_idx,
+            "depth_tensor": depth,
+            "engagement_tensor": engagement,
         }

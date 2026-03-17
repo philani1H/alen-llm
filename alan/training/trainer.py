@@ -37,6 +37,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from model.core_transformer import Alan, AlanConfig, build_alan, get_device, print_device_info
 from config.guardrails import get_awareness_layer
+from model.modules.emotional_intelligence import EMOTIONAL_TONES
 
 logging.basicConfig(
     level=logging.INFO,
@@ -87,7 +88,7 @@ class AlanDataset(Dataset):
         self.tokenizer = tokenizer
         self.max_seq_len = max_seq_len
         self.phase = phase
-        self.examples = []
+        self.examples: List[Dict] = []
 
         data_path = Path(data_dir)
         self._load_data(data_path)
@@ -110,13 +111,68 @@ class AlanDataset(Dataset):
                         if line:
                             try:
                                 example = json.loads(line)
-                                text = self._extract_text(example)
-                                if text and len(text) > 10:
-                                    self.examples.append(text)
+                                record = self._build_record(example)
+                                if record is not None:
+                                    self.examples.append(record)
                             except json.JSONDecodeError:
                                 pass
             except Exception as e:
                 logger.warning(f"Error loading {filepath}: {e}")
+
+    def _build_record(self, example: Dict) -> Optional[Dict]:
+        text = self._extract_text(example)
+        if not text or len(text) <= 10:
+            return None
+
+        record: Dict = {
+            "text": text,
+            "router_target": None,
+            "tone_label": None,
+            "engagement_target": None,
+            "confidence_target": None,
+            "should_ask_target": None,
+        }
+
+        ex_type = example.get("type", "")
+        if ex_type in {"reasoning", "emotional_intelligence"}:
+            module_names = ["reasoning", "creativity", "curiosity", "emotional", "memory", "meta"]
+            target = torch.zeros(len(module_names), dtype=torch.float32)
+            if ex_type == "reasoning":
+                target[module_names.index("reasoning")] = 1.0
+                target[module_names.index("meta")] = 1.0
+            if ex_type == "emotional_intelligence":
+                target[module_names.index("emotional")] = 1.0
+                target[module_names.index("meta")] = 0.5
+            record["router_target"] = target
+
+        if ex_type == "emotional_intelligence":
+            tone = str(example.get("user_tone", "")).strip().lower()
+            if tone in EMOTIONAL_TONES:
+                record["tone_label"] = EMOTIONAL_TONES.index(tone)
+            dims = example.get("emotional_dimensions", {})
+            if isinstance(dims, dict):
+                try:
+                    empathy = float(dims.get("empathy_shown"))
+                    directness = float(dims.get("directness"))
+                    encouragement = float(dims.get("encouragement"))
+                    record["engagement_target"] = torch.tensor(
+                        [empathy, directness, encouragement],
+                        dtype=torch.float32,
+                    )
+                except (TypeError, ValueError):
+                    pass
+
+        if ex_type == "epistemic":
+            try:
+                record["confidence_target"] = float(example.get("confidence_target"))
+            except (TypeError, ValueError):
+                record["confidence_target"] = None
+            try:
+                record["should_ask_target"] = float(example.get("should_ask_target"))
+            except (TypeError, ValueError):
+                record["should_ask_target"] = None
+
+        return record
 
     def _extract_text(self, example: Dict) -> str:
         """Extract training text from an example."""
@@ -164,25 +220,32 @@ class AlanDataset(Dataset):
                 f"ALAN: {analysis.get('response', '')}"
             )
 
+        elif ex_type == "epistemic":
+            return (
+                f"USER: {example.get('user_message', '')}\n"
+                f"ALAN: {example.get('ideal_response', '')}"
+            )
+
         # Fallback: dump all string values
         return " ".join(str(v) for v in example.values() if isinstance(v, str))
 
     def _generate_synthetic_data(self):
         """Generate minimal synthetic data for testing when no real data exists."""
         synthetic = [
-            "USER: What is machine learning?\nALAN: Machine learning is a subset of AI where systems learn from data to improve performance without being explicitly programmed.",
-            "USER: Help me debug this Python code\nALAN: I'd be happy to help debug your code. Could you share the code and describe what error you're seeing?",
-            "USER: Actually, forget the code. What's the best way to learn Python?\nALAN: The most effective approach is to build projects you actually care about. Start with small scripts that solve real problems for you.",
-            "USER: I'm frustrated — I've been stuck on this for hours\nALAN: That's genuinely exhausting. Let's take a fresh look together. What specifically is blocking you?",
-            "USER: How do decorators work in Python?\nALAN: Decorators are functions that wrap other functions, modifying their behavior. Think of them as a way to add functionality to existing code without changing it directly.",
+            {"text": "USER: What is machine learning?\nALAN: Machine learning is a subset of AI where systems learn from data to improve performance without being explicitly programmed."},
+            {"text": "USER: Help me debug this Python code\nALAN: I'd be happy to help debug your code. Could you share the code and describe what error you're seeing?"},
+            {"text": "USER: Actually, forget the code. What's the best way to learn Python?\nALAN: The most effective approach is to build projects you actually care about. Start with small scripts that solve real problems for you."},
+            {"text": "USER: I'm frustrated — I've been stuck on this for hours\nALAN: That's genuinely exhausting. Let's take a fresh look together. What specifically is blocking you?"},
+            {"text": "USER: How do decorators work in Python?\nALAN: Decorators are functions that wrap other functions, modifying their behavior. Think of them as a way to add functionality to existing code without changing it directly."},
         ]
-        self.examples.extend(synthetic * 20)  # Repeat for training
+        self.examples.extend(synthetic * 20)
 
     def __len__(self):
         return len(self.examples)
 
     def __getitem__(self, idx: int) -> Dict[str, torch.Tensor]:
-        text = self.examples[idx]
+        record = self.examples[idx]
+        text = record["text"]
 
         # Tokenize
         tokens = self.tokenizer.encode(
@@ -213,9 +276,58 @@ class AlanDataset(Dataset):
             # Make first token a valid label
             labels[0] = input_ids[1] if len(input_ids) > 1 else input_ids[0]
 
+        module_dim = 6
+        router_target = record.get("router_target")
+        if isinstance(router_target, torch.Tensor) and router_target.numel() == module_dim:
+            router_mask = torch.tensor(1.0, dtype=torch.float32)
+        else:
+            router_target = torch.zeros(module_dim, dtype=torch.float32)
+            router_mask = torch.tensor(0.0, dtype=torch.float32)
+
+        tone_label = record.get("tone_label")
+        if isinstance(tone_label, int) and tone_label >= 0:
+            tone_mask = torch.tensor(1.0, dtype=torch.float32)
+            tone_label_t = torch.tensor(tone_label, dtype=torch.long)
+        else:
+            tone_mask = torch.tensor(0.0, dtype=torch.float32)
+            tone_label_t = torch.tensor(0, dtype=torch.long)
+
+        engagement_target = record.get("engagement_target")
+        if isinstance(engagement_target, torch.Tensor) and engagement_target.numel() == 3:
+            engagement_mask = torch.tensor(1.0, dtype=torch.float32)
+        else:
+            engagement_target = torch.zeros(3, dtype=torch.float32)
+            engagement_mask = torch.tensor(0.0, dtype=torch.float32)
+
+        confidence_target = record.get("confidence_target")
+        if isinstance(confidence_target, float) and 0.0 <= confidence_target <= 1.0:
+            confidence_mask = torch.tensor(1.0, dtype=torch.float32)
+            confidence_target_t = torch.tensor(confidence_target, dtype=torch.float32)
+        else:
+            confidence_mask = torch.tensor(0.0, dtype=torch.float32)
+            confidence_target_t = torch.tensor(0.0, dtype=torch.float32)
+
+        should_ask_target = record.get("should_ask_target")
+        if isinstance(should_ask_target, float) and 0.0 <= should_ask_target <= 1.0:
+            should_ask_mask = torch.tensor(1.0, dtype=torch.float32)
+            should_ask_target_t = torch.tensor(should_ask_target, dtype=torch.float32)
+        else:
+            should_ask_mask = torch.tensor(0.0, dtype=torch.float32)
+            should_ask_target_t = torch.tensor(0.0, dtype=torch.float32)
+
         return {
             "input_ids": input_ids,
             "labels": labels,
+            "router_target": router_target,
+            "router_mask": router_mask,
+            "tone_label": tone_label_t,
+            "tone_mask": tone_mask,
+            "engagement_target": engagement_target,
+            "engagement_mask": engagement_mask,
+            "confidence_target": confidence_target_t,
+            "confidence_mask": confidence_mask,
+            "should_ask_target": should_ask_target_t,
+            "should_ask_mask": should_ask_mask,
         }
 
 
@@ -248,6 +360,11 @@ class AlanTrainer:
         warmup_steps: int = 100,
         gradient_accumulation_steps: int = 4,
         use_mixed_precision: bool = True,
+        router_loss_weight: float = 0.05,
+        tone_loss_weight: float = 0.05,
+        engagement_loss_weight: float = 0.05,
+        confidence_loss_weight: float = 0.05,
+        should_ask_loss_weight: float = 0.05,
     ):
         self.model = model
         self.config = config
@@ -276,6 +393,11 @@ class AlanTrainer:
 
         # Loss function
         self.criterion = nn.CrossEntropyLoss(ignore_index=-100)
+        self.router_loss_weight = router_loss_weight
+        self.tone_loss_weight = tone_loss_weight
+        self.engagement_loss_weight = engagement_loss_weight
+        self.confidence_loss_weight = confidence_loss_weight
+        self.should_ask_loss_weight = should_ask_loss_weight
 
         logger.info(f"[Trainer] Initialized on {device}")
         logger.info(f"[Trainer] Parameters: {model.count_parameters():,}")
@@ -299,27 +421,113 @@ class AlanTrainer:
 
             input_ids = batch["input_ids"].to(self.device)
             labels = batch["labels"].to(self.device)
+            router_target = batch["router_target"].to(self.device)
+            router_mask = batch["router_mask"].to(self.device)
+            tone_label = batch["tone_label"].to(self.device)
+            tone_mask = batch["tone_mask"].to(self.device)
+            engagement_target = batch["engagement_target"].to(self.device)
+            engagement_mask = batch["engagement_mask"].to(self.device)
+            confidence_target = batch["confidence_target"].to(self.device)
+            confidence_mask = batch["confidence_mask"].to(self.device)
+            should_ask_target = batch["should_ask_target"].to(self.device)
+            should_ask_mask = batch["should_ask_mask"].to(self.device)
 
             # Forward pass
             actual_vocab = logits_shape = None
             if self.use_amp:
                 with torch.cuda.amp.autocast():
-                    logits, _ = self.model(input_ids)
+                    logits, metadata = self.model(input_ids)
                     actual_vocab = logits.shape[-1]
-                    loss = self.criterion(
+                    lm_loss = self.criterion(
                         logits.view(-1, actual_vocab),
                         labels.view(-1)
                     )
-                    loss = loss / self.gradient_accumulation_steps
+                    aux_loss = torch.zeros((), device=self.device)
+
+                    module_weights = metadata.get("module_weights_raw")
+                    if isinstance(module_weights, dict) and router_mask.sum().item() > 0:
+                        module_names = ["reasoning", "creativity", "curiosity", "emotional", "memory", "meta"]
+                        pred = torch.stack([module_weights[n] for n in module_names], dim=-1)
+                        per_row = F.binary_cross_entropy(pred, router_target, reduction="none").mean(dim=-1)
+                        router_loss = (per_row * router_mask).sum() / router_mask.sum().clamp_min(1.0)
+                        aux_loss = aux_loss + self.router_loss_weight * router_loss
+
+                    ei = metadata.get("emotional_intelligence", {})
+                    tone_logits = ei.get("tone_logits") if isinstance(ei, dict) else None
+                    if isinstance(tone_logits, torch.Tensor) and tone_mask.sum().item() > 0:
+                        per_row = F.cross_entropy(tone_logits, tone_label, reduction="none")
+                        tone_loss = (per_row * tone_mask).sum() / tone_mask.sum().clamp_min(1.0)
+                        aux_loss = aux_loss + self.tone_loss_weight * tone_loss
+
+                    engagement_pred = ei.get("engagement") if isinstance(ei, dict) else None
+                    if isinstance(engagement_pred, torch.Tensor) and engagement_mask.sum().item() > 0:
+                        per_row = F.mse_loss(engagement_pred, engagement_target, reduction="none").mean(dim=-1)
+                        engagement_loss = (per_row * engagement_mask).sum() / engagement_mask.sum().clamp_min(1.0)
+                        aux_loss = aux_loss + self.engagement_loss_weight * engagement_loss
+
+                    mr = metadata.get("meta_reasoning", {})
+                    conf_pred = mr.get("confidence_tensor") if isinstance(mr, dict) else None
+                    if isinstance(conf_pred, torch.Tensor) and confidence_mask.sum().item() > 0:
+                        per_row = (conf_pred - confidence_target).pow(2)
+                        confidence_loss = (per_row * confidence_mask).sum() / confidence_mask.sum().clamp_min(1.0)
+                        aux_loss = aux_loss + self.confidence_loss_weight * confidence_loss
+
+                    cur = metadata.get("curiosity", {})
+                    ask_pred = cur.get("should_ask_tensor") if isinstance(cur, dict) else None
+                    if isinstance(ask_pred, torch.Tensor) and should_ask_mask.sum().item() > 0:
+                        ask_pred = ask_pred.squeeze(-1)
+                        per_row = (ask_pred - should_ask_target).pow(2)
+                        ask_loss = (per_row * should_ask_mask).sum() / should_ask_mask.sum().clamp_min(1.0)
+                        aux_loss = aux_loss + self.should_ask_loss_weight * ask_loss
+
+                    loss = (lm_loss + aux_loss) / self.gradient_accumulation_steps
                 self.scaler.scale(loss).backward()
             else:
-                logits, _ = self.model(input_ids)
+                logits, metadata = self.model(input_ids)
                 actual_vocab = logits.shape[-1]
-                loss = self.criterion(
+                lm_loss = self.criterion(
                     logits.view(-1, actual_vocab),
                     labels.view(-1)
                 )
-                loss = loss / self.gradient_accumulation_steps
+                aux_loss = torch.zeros((), device=self.device)
+
+                module_weights = metadata.get("module_weights_raw")
+                if isinstance(module_weights, dict) and router_mask.sum().item() > 0:
+                    module_names = ["reasoning", "creativity", "curiosity", "emotional", "memory", "meta"]
+                    pred = torch.stack([module_weights[n] for n in module_names], dim=-1)
+                    per_row = F.binary_cross_entropy(pred, router_target, reduction="none").mean(dim=-1)
+                    router_loss = (per_row * router_mask).sum() / router_mask.sum().clamp_min(1.0)
+                    aux_loss = aux_loss + self.router_loss_weight * router_loss
+
+                ei = metadata.get("emotional_intelligence", {})
+                tone_logits = ei.get("tone_logits") if isinstance(ei, dict) else None
+                if isinstance(tone_logits, torch.Tensor) and tone_mask.sum().item() > 0:
+                    per_row = F.cross_entropy(tone_logits, tone_label, reduction="none")
+                    tone_loss = (per_row * tone_mask).sum() / tone_mask.sum().clamp_min(1.0)
+                    aux_loss = aux_loss + self.tone_loss_weight * tone_loss
+
+                engagement_pred = ei.get("engagement") if isinstance(ei, dict) else None
+                if isinstance(engagement_pred, torch.Tensor) and engagement_mask.sum().item() > 0:
+                    per_row = F.mse_loss(engagement_pred, engagement_target, reduction="none").mean(dim=-1)
+                    engagement_loss = (per_row * engagement_mask).sum() / engagement_mask.sum().clamp_min(1.0)
+                    aux_loss = aux_loss + self.engagement_loss_weight * engagement_loss
+
+                mr = metadata.get("meta_reasoning", {})
+                conf_pred = mr.get("confidence_tensor") if isinstance(mr, dict) else None
+                if isinstance(conf_pred, torch.Tensor) and confidence_mask.sum().item() > 0:
+                    per_row = (conf_pred - confidence_target).pow(2)
+                    confidence_loss = (per_row * confidence_mask).sum() / confidence_mask.sum().clamp_min(1.0)
+                    aux_loss = aux_loss + self.confidence_loss_weight * confidence_loss
+
+                cur = metadata.get("curiosity", {})
+                ask_pred = cur.get("should_ask_tensor") if isinstance(cur, dict) else None
+                if isinstance(ask_pred, torch.Tensor) and should_ask_mask.sum().item() > 0:
+                    ask_pred = ask_pred.squeeze(-1)
+                    per_row = (ask_pred - should_ask_target).pow(2)
+                    ask_loss = (per_row * should_ask_mask).sum() / should_ask_mask.sum().clamp_min(1.0)
+                    aux_loss = aux_loss + self.should_ask_loss_weight * ask_loss
+
+                loss = (lm_loss + aux_loss) / self.gradient_accumulation_steps
                 loss.backward()
 
             loss_val = loss.item() * self.gradient_accumulation_steps
@@ -373,11 +581,13 @@ class AlanTrainer:
                 logits.view(-1, actual_vocab),
                 labels.view(-1)
             )
-            total_loss += loss.item()
-            num_batches += 1
+            loss_val = loss.item()
+            if not math.isnan(loss_val) and not math.isinf(loss_val):
+                total_loss += loss_val
+                num_batches += 1
 
         avg_loss = total_loss / max(num_batches, 1)
-        perplexity = math.exp(min(avg_loss, 20))
+        perplexity = math.exp(min(avg_loss, 20)) if not math.isnan(avg_loss) else float("inf")
 
         return {
             "loss": avg_loss,
