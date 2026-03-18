@@ -37,6 +37,9 @@ from model.memory.consolidation import MemoryConsolidator
 from model.modules.creativity_engine import CreativityEngine
 from model.modules.curiosity_module import CuriosityModule
 from model.modules.feedback_integration import FeedbackIntegration
+from model.modules.dopamine_system import DopamineSystem
+from model.modules.practice_rehearsal import PracticeRehearsal
+from model.modules.knowledge_awareness import KnowledgeAwareness
 from model.modules.emotional_intelligence import EMOTIONAL_TONES
 from model.output.dynamic_temperature import DynamicTemperatureController
 from model.output.output_controller import OutputController
@@ -740,6 +743,144 @@ def test_enriched_metadata(results: TestResults, model: Optional[Alan], config: 
 
 
 # ============================================================
+# TEST 13: DOPAMINE SYSTEM
+# ============================================================
+
+def test_dopamine_system(results: TestResults):
+    print("\n[TEST 13] Dopamine System")
+
+    try:
+        ds = DopamineSystem(hidden_dim=128)
+        x = torch.randn(2, 16, 128)
+        out, meta = ds(x)
+
+        # Check output shape matches input
+        results.record(
+            "DopamineSystem output shape",
+            out.shape == (2, 16, 128),
+            f"Shape: {out.shape}"
+        )
+
+        # Check metadata keys
+        expected_keys = ["reward_signals", "novelty", "combined_reward", "reinforcement_multiplier"]
+        present = [k for k in expected_keys if k in meta]
+        results.record(
+            "DopamineSystem metadata keys",
+            len(present) == len(expected_keys),
+            f"Found {len(present)}/{len(expected_keys)}: {present}"
+        )
+
+        # Check reinforcement_multiplier_tensor is clamped between 1.0 and 5.0
+        reinf_tensor = meta["reinforcement_tensor"]
+        clamped = reinf_tensor.min().item() >= 1.0 and reinf_tensor.max().item() <= 5.0
+        results.record(
+            "DopamineSystem reinforcement clamped [1.0, 5.0]",
+            clamped,
+            f"min={reinf_tensor.min().item():.3f}, max={reinf_tensor.max().item():.3f}"
+        )
+
+    except Exception as e:
+        results.record("DopamineSystem forward", False, str(e))
+
+
+# ============================================================
+# TEST 14: PRACTICE REHEARSAL
+# ============================================================
+
+def test_practice_rehearsal(results: TestResults):
+    print("\n[TEST 14] Practice Rehearsal")
+
+    try:
+        pr = PracticeRehearsal(hidden_dim=128)
+        x = torch.randn(2, 16, 128)
+        out, meta = pr(x)
+
+        # Check output shape matches input
+        results.record(
+            "PracticeRehearsal output shape",
+            out.shape == (2, 16, 128),
+            f"Shape: {out.shape}"
+        )
+
+        # Check metadata keys
+        expected_keys = ["practice_stage", "verification_score", "practice_multiplier"]
+        # Map expected keys to actual keys from the module
+        actual_key_map = {
+            "practice_stage": "stage",
+            "verification_score": "verification_score",
+            "practice_multiplier": "reinforcement_multiplier",
+        }
+        present = [k for k in actual_key_map.values() if k in meta]
+        results.record(
+            "PracticeRehearsal metadata keys",
+            len(present) == len(expected_keys),
+            f"Found {len(present)}/{len(expected_keys)}: {present}"
+        )
+
+        # Check practice_multiplier_tensor is clamped between 1.0 and 2.5
+        mult_tensor = meta["multiplier_tensor"]
+        clamped = mult_tensor.min().item() >= 1.0 and mult_tensor.max().item() <= 2.5
+        results.record(
+            "PracticeRehearsal multiplier clamped [1.0, 2.5]",
+            clamped,
+            f"min={mult_tensor.min().item():.3f}, max={mult_tensor.max().item():.3f}"
+        )
+
+    except Exception as e:
+        results.record("PracticeRehearsal forward", False, str(e))
+
+
+# ============================================================
+# TEST 15: KNOWLEDGE AWARENESS
+# ============================================================
+
+def test_knowledge_awareness(results: TestResults):
+    print("\n[TEST 15] Knowledge Awareness")
+
+    try:
+        ka = KnowledgeAwareness(hidden_dim=128)
+        x = torch.randn(2, 16, 128)
+        out, meta = ka(x)
+
+        # Check output shape matches input
+        results.record(
+            "KnowledgeAwareness output shape",
+            out.shape == (2, 16, 128),
+            f"Shape: {out.shape}"
+        )
+
+        # Check metadata keys
+        expected_keys = ["confidence", "uncertainty_level", "uncertainty_type",
+                         "domain_confidence", "boundary_score"]
+        present = [k for k in expected_keys if k in meta]
+        results.record(
+            "KnowledgeAwareness metadata keys",
+            len(present) == len(expected_keys),
+            f"Found {len(present)}/{len(expected_keys)}: {present}"
+        )
+
+        # Check confidence is between 0 and 1
+        conf = meta["confidence"]
+        results.record(
+            "KnowledgeAwareness confidence in [0, 1]",
+            0.0 <= conf <= 1.0,
+            f"confidence={conf:.3f}"
+        )
+
+        # Check uncertainty_type is one of the 5 valid types
+        valid_types = ["data_sparse", "ambiguous", "conflicting", "out_of_domain", "temporal"]
+        utype = meta["uncertainty_type"]
+        results.record(
+            "KnowledgeAwareness uncertainty_type valid",
+            utype in valid_types,
+            f"type={utype}"
+        )
+
+    except Exception as e:
+        results.record("KnowledgeAwareness forward", False, str(e))
+
+
+# ============================================================
 # MAIN TEST RUNNER
 # ============================================================
 
@@ -765,6 +906,9 @@ def run_all_tests(checkpoint_path: Optional[str] = None):
     test_output_system(results, device)
     test_training_infra(results)
     test_enriched_metadata(results, model, config, device)
+    test_dopamine_system(results)
+    test_practice_rehearsal(results)
+    test_knowledge_awareness(results)
 
     # Print summary
     success = results.summary()

@@ -5,6 +5,9 @@ from .meta_reasoning import MetaReasoning
 from .creativity_engine import CreativityEngine
 from .curiosity_module import CuriosityModule
 from .feedback_integration import FeedbackIntegration
+from .dopamine_system import DopamineSystem
+from .practice_rehearsal import PracticeRehearsal
+from .knowledge_awareness import KnowledgeAwareness
 
 __all__ = [
     "ReasoningEngine", "ScratchpadMechanism",
@@ -12,4 +15,7 @@ __all__ = [
     "CreativityEngine",
     "CuriosityModule",
     "FeedbackIntegration",
+    "DopamineSystem",
+    "PracticeRehearsal",
+    "KnowledgeAwareness",
 ]

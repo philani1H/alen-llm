@@ -25,6 +25,9 @@ from .modules.emotional_intelligence import EmotionalIntelligence, MetaReasoning
 from .modules.creativity_engine import CreativityEngine
 from .modules.curiosity_module import CuriosityModule
 from .modules.feedback_integration import FeedbackIntegration
+from .modules.dopamine_system import DopamineSystem
+from .modules.practice_rehearsal import PracticeRehearsal
+from .modules.knowledge_awareness import KnowledgeAwareness
 from .output.dynamic_temperature import DynamicTemperatureController
 from .output.output_controller import OutputController
 from .output.engagement_hooks import EngagementHookSystem
@@ -549,6 +552,9 @@ class Alan(nn.Module):
         self.emotional_intelligence = EmotionalIntelligence(config.hidden_dim)
         self.meta_reasoning = MetaReasoning(config.hidden_dim)
         self.feedback_integration = FeedbackIntegration(config.hidden_dim)
+        self.dopamine_system = DopamineSystem(config.hidden_dim)
+        self.practice_rehearsal = PracticeRehearsal(config.hidden_dim)
+        self.knowledge_awareness = KnowledgeAwareness(config.hidden_dim)
 
         # Scratchpad (internal chain-of-thought, spec section 3.2)
         self.scratchpad = ScratchpadMechanism(config.hidden_dim, config.scratchpad_max_tokens)
@@ -659,6 +665,18 @@ class Alan(nn.Module):
         input_repr = self.token_embedding(tokens)  # Original input for comparison
         x, meta_meta = self.meta_reasoning(x, input_repr=input_repr, activation_weight=module_weights.get("meta"))
 
+        # === Dopamine Reward System ===
+        # Internal reward signals for learning, connection-making, problem-solving
+        x, dopamine_meta = self.dopamine_system(x)
+
+        # === Practice & Rehearsal System ===
+        # Detects and encourages deeper knowledge processing (restate, apply, connect, question, teach)
+        x, practice_meta = self.practice_rehearsal(x)
+
+        # === Knowledge Awareness System ===
+        # Epistemic confidence, uncertainty detection, anti-hallucination
+        x, knowledge_meta = self.knowledge_awareness(x)
+
         # Final normalization
         x = self.final_norm(x)
 
@@ -684,6 +702,9 @@ class Alan(nn.Module):
             "curiosity": curiosity_meta,
             "emotional_intelligence": ei_meta,
             "meta_reasoning": meta_meta,
+            "dopamine": dopamine_meta,
+            "practice_rehearsal": practice_meta,
+            "knowledge_awareness": knowledge_meta,
             "temperature": temp_params,
             "output_strategy": output_strategy,
         }

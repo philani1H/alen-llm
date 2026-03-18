@@ -1,7 +1,7 @@
 {
-  "passed": 47,
+  "passed": 57,
   "failed": 0,
-  "total": 47,
+  "total": 57,
   "success": true,
   "results": [
     {
@@ -12,7 +12,7 @@
     {
       "test": "Model build (small)",
       "status": "PASS",
-      "details": "99,528,559 params"
+      "details": "106,236,761 params"
     },
     {
       "test": "Forward pass (text only)",
@@ -32,7 +32,7 @@
     {
       "test": "Parameter count reasonable",
       "status": "PASS",
-      "details": "99,528,559 parameters"
+      "details": "106,236,761 parameters"
     },
     {
       "test": "Topic extraction",
@@ -107,22 +107,22 @@
     {
       "test": "File: reasoning_examples.jsonl",
       "status": "PASS",
-      "details": "49 examples"
+      "details": "100 examples"
     },
     {
       "test": "File: conversation_examples.jsonl",
       "status": "PASS",
-      "details": "50 examples"
+      "details": "100 examples"
     },
     {
       "test": "File: emotional_examples.jsonl",
       "status": "PASS",
-      "details": "30 examples"
+      "details": "100 examples"
     },
     {
       "test": "File: safety_examples.jsonl",
       "status": "PASS",
-      "details": "30 examples"
+      "details": "100 examples"
     },
     {
       "test": "Emotional tones covered by model",
@@ -132,7 +132,7 @@
     {
       "test": "Combined training data",
       "status": "PASS",
-      "details": "199 total examples"
+      "details": "1000 total examples"
     },
     {
       "test": "Generation produces new tokens",
@@ -167,17 +167,17 @@
     {
       "test": "CreativityEngine forward",
       "status": "PASS",
-      "details": "candidates=3, gate=0.502"
+      "details": "candidates=3, gate=0.500"
     },
     {
       "test": "CuriosityModule forward",
       "status": "PASS",
-      "details": "gap=minor_gap, should_ask=0.527"
+      "details": "gap=minor_gap, should_ask=0.514"
     },
     {
       "test": "FeedbackIntegration forward",
       "status": "PASS",
-      "details": "type=gentle_correction, rehearsal=0.468"
+      "details": "type=no_correction, rehearsal=0.478"
     },
     {
       "test": "PatternStore store/stats",
@@ -197,17 +197,17 @@
     {
       "test": "DynamicTemperature forward",
       "status": "PASS",
-      "details": "temp=0.878, top_p=0.897"
+      "details": "temp=0.850, top_p=0.900"
     },
     {
       "test": "OutputController forward",
       "status": "PASS",
-      "details": "strategy=step_by_step, depth=0.468"
+      "details": "strategy=concise_answer, depth=0.490"
     },
     {
       "test": "EngagementHooks forward",
       "status": "PASS",
-      "details": "hook=pattern_reveal, intensity=0.259"
+      "details": "hook=challenge_hook, intensity=0.025"
     },
     {
       "test": "CurriculumScheduler phases",
@@ -227,17 +227,67 @@
     {
       "test": "Reasoning metadata valid",
       "status": "PASS",
-      "details": "confidence=0.4999767541885376"
+      "details": "confidence=0.4994678199291229"
     },
     {
       "test": "Output strategy selected",
       "status": "PASS",
-      "details": "strategy=concise_answer"
+      "details": "strategy=clarifying"
     },
     {
       "test": "Dynamic temperature computed",
       "status": "PASS",
-      "details": "temp=0.9071758985519409"
+      "details": "temp=0.9291954636573792"
+    },
+    {
+      "test": "DopamineSystem output shape",
+      "status": "PASS",
+      "details": "Shape: torch.Size([2, 16, 128])"
+    },
+    {
+      "test": "DopamineSystem metadata keys",
+      "status": "PASS",
+      "details": "Found 4/4: ['reward_signals', 'novelty', 'combined_reward', 'reinforcement_multiplier']"
+    },
+    {
+      "test": "DopamineSystem reinforcement clamped [1.0, 5.0]",
+      "status": "PASS",
+      "details": "min=1.000, max=1.000"
+    },
+    {
+      "test": "PracticeRehearsal output shape",
+      "status": "PASS",
+      "details": "Shape: torch.Size([2, 16, 128])"
+    },
+    {
+      "test": "PracticeRehearsal metadata keys",
+      "status": "PASS",
+      "details": "Found 3/3: ['stage', 'verification_score', 'reinforcement_multiplier']"
+    },
+    {
+      "test": "PracticeRehearsal multiplier clamped [1.0, 2.5]",
+      "status": "PASS",
+      "details": "min=1.000, max=1.000"
+    },
+    {
+      "test": "KnowledgeAwareness output shape",
+      "status": "PASS",
+      "details": "Shape: torch.Size([2, 16, 128])"
+    },
+    {
+      "test": "KnowledgeAwareness metadata keys",
+      "status": "PASS",
+      "details": "Found 5/5: ['confidence', 'uncertainty_level', 'uncertainty_type', 'domain_confidence', 'boundary_score']"
+    },
+    {
+      "test": "KnowledgeAwareness confidence in [0, 1]",
+      "status": "PASS",
+      "details": "confidence=0.530"
+    },
+    {
+      "test": "KnowledgeAwareness uncertainty_type valid",
+      "status": "PASS",
+      "details": "type=conflicting"
     }
   ]
 }
