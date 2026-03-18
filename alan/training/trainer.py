@@ -4,7 +4,7 @@ ECONX GROUP (PTY) LTD
 
 Complete training pipeline including:
 - Dataset loading from JSONL/TXT training data
-- Tokenization with GPT-2 BPE tokenizer
+- Tokenization with ALAN's custom BPE tokenizer
 - Curriculum-based training (4 phases)
 - Image understanding training support
 - CUDA/MPS/CPU device auto-detection
@@ -55,12 +55,11 @@ logger = logging.getLogger(__name__)
 # ============================================================
 
 def get_tokenizer():
-    """Load GPT-2 BPE tokenizer."""
+    """Load ALAN's custom BPE tokenizer."""
     try:
-        from transformers import GPT2Tokenizer
-        tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-        tokenizer.pad_token = tokenizer.eos_token
-        logger.info(f"[Tokenizer] GPT-2 tokenizer loaded: vocab_size={tokenizer.vocab_size}")
+        from model.tokenizer import get_tokenizer as _get_tokenizer
+        tokenizer = _get_tokenizer()
+        logger.info(f"[Tokenizer] ALAN tokenizer loaded: {tokenizer}")
         return tokenizer
     except Exception as e:
         logger.error(f"Failed to load tokenizer: {e}")
@@ -131,6 +130,9 @@ class AlanDataset(Dataset):
             "engagement_target": None,
             "confidence_target": None,
             "should_ask_target": None,
+            "dopamine_target": None,
+            "practice_level": None,
+            "knowledge_confidence_target": None,
         }
 
         ex_type = example.get("type", "")
@@ -171,6 +173,32 @@ class AlanDataset(Dataset):
                 record["should_ask_target"] = float(example.get("should_ask_target"))
             except (TypeError, ValueError):
                 record["should_ask_target"] = None
+
+        # Dopamine target: expected reward signal (0-1) for this example
+        try:
+            dt = example.get("dopamine_target")
+            if dt is not None:
+                record["dopamine_target"] = float(dt)
+        except (TypeError, ValueError):
+            pass
+
+        # Practice level: which rehearsal stage this example represents
+        # Valid values: heard_once, restated, applied, connected, questioned, taught_back
+        pl = example.get("practice_level")
+        if isinstance(pl, str) and pl in {
+            "heard_once", "restated", "applied",
+            "connected", "questioned", "taught_back",
+        }:
+            from model.modules.practice_rehearsal import REHEARSAL_STAGES
+            record["practice_level"] = REHEARSAL_STAGES[pl]
+
+        # Knowledge confidence target: how confident the model SHOULD be (0-1)
+        try:
+            kct = example.get("knowledge_confidence_target")
+            if kct is not None:
+                record["knowledge_confidence_target"] = float(kct)
+        except (TypeError, ValueError):
+            pass
 
         return record
 
@@ -315,6 +343,33 @@ class AlanDataset(Dataset):
             should_ask_mask = torch.tensor(0.0, dtype=torch.float32)
             should_ask_target_t = torch.tensor(0.0, dtype=torch.float32)
 
+        # --- Dopamine target ---
+        dopamine_target = record.get("dopamine_target")
+        if isinstance(dopamine_target, float) and 0.0 <= dopamine_target <= 1.0:
+            dopamine_mask = torch.tensor(1.0, dtype=torch.float32)
+            dopamine_target_t = torch.tensor(dopamine_target, dtype=torch.float32)
+        else:
+            dopamine_mask = torch.tensor(0.0, dtype=torch.float32)
+            dopamine_target_t = torch.tensor(0.0, dtype=torch.float32)
+
+        # --- Practice level target ---
+        practice_level = record.get("practice_level")
+        if isinstance(practice_level, int) and 0 <= practice_level <= 5:
+            practice_mask = torch.tensor(1.0, dtype=torch.float32)
+            practice_level_t = torch.tensor(practice_level, dtype=torch.long)
+        else:
+            practice_mask = torch.tensor(0.0, dtype=torch.float32)
+            practice_level_t = torch.tensor(0, dtype=torch.long)
+
+        # --- Knowledge confidence target ---
+        knowledge_confidence_target = record.get("knowledge_confidence_target")
+        if isinstance(knowledge_confidence_target, float) and 0.0 <= knowledge_confidence_target <= 1.0:
+            knowledge_confidence_mask = torch.tensor(1.0, dtype=torch.float32)
+            knowledge_confidence_target_t = torch.tensor(knowledge_confidence_target, dtype=torch.float32)
+        else:
+            knowledge_confidence_mask = torch.tensor(0.0, dtype=torch.float32)
+            knowledge_confidence_target_t = torch.tensor(0.0, dtype=torch.float32)
+
         return {
             "input_ids": input_ids,
             "labels": labels,
@@ -328,6 +383,12 @@ class AlanDataset(Dataset):
             "confidence_mask": confidence_mask,
             "should_ask_target": should_ask_target_t,
             "should_ask_mask": should_ask_mask,
+            "dopamine_target": dopamine_target_t,
+            "dopamine_mask": dopamine_mask,
+            "practice_level": practice_level_t,
+            "practice_mask": practice_mask,
+            "knowledge_confidence_target": knowledge_confidence_target_t,
+            "knowledge_confidence_mask": knowledge_confidence_mask,
         }
 
 
@@ -365,6 +426,9 @@ class AlanTrainer:
         engagement_loss_weight: float = 0.05,
         confidence_loss_weight: float = 0.05,
         should_ask_loss_weight: float = 0.05,
+        dopamine_loss_weight: float = 0.05,
+        practice_loss_weight: float = 0.05,
+        knowledge_awareness_loss_weight: float = 0.05,
     ):
         self.model = model
         self.config = config
@@ -398,6 +462,9 @@ class AlanTrainer:
         self.engagement_loss_weight = engagement_loss_weight
         self.confidence_loss_weight = confidence_loss_weight
         self.should_ask_loss_weight = should_ask_loss_weight
+        self.dopamine_loss_weight = dopamine_loss_weight
+        self.practice_loss_weight = practice_loss_weight
+        self.knowledge_awareness_loss_weight = knowledge_awareness_loss_weight
 
         logger.info(f"[Trainer] Initialized on {device}")
         logger.info(f"[Trainer] Parameters: {model.count_parameters():,}")
@@ -431,6 +498,12 @@ class AlanTrainer:
             confidence_mask = batch["confidence_mask"].to(self.device)
             should_ask_target = batch["should_ask_target"].to(self.device)
             should_ask_mask = batch["should_ask_mask"].to(self.device)
+            dopamine_target = batch["dopamine_target"].to(self.device)
+            dopamine_mask = batch["dopamine_mask"].to(self.device)
+            practice_level = batch["practice_level"].to(self.device)
+            practice_mask = batch["practice_mask"].to(self.device)
+            knowledge_confidence_target = batch["knowledge_confidence_target"].to(self.device)
+            knowledge_confidence_mask = batch["knowledge_confidence_mask"].to(self.device)
 
             # Forward pass
             actual_vocab = logits_shape = None
@@ -480,6 +553,30 @@ class AlanTrainer:
                         ask_loss = (per_row * should_ask_mask).sum() / should_ask_mask.sum().clamp_min(1.0)
                         aux_loss = aux_loss + self.should_ask_loss_weight * ask_loss
 
+                    # === Dopamine loss: reward signal should match target ===
+                    dop = metadata.get("dopamine", {})
+                    dop_pred = dop.get("combined_reward_tensor") if isinstance(dop, dict) else None
+                    if isinstance(dop_pred, torch.Tensor) and dopamine_mask.sum().item() > 0:
+                        per_row = (dop_pred - dopamine_target).pow(2)
+                        dop_loss = (per_row * dopamine_mask).sum() / dopamine_mask.sum().clamp_min(1.0)
+                        aux_loss = aux_loss + self.dopamine_loss_weight * dop_loss
+
+                    # === Practice verification loss: stage classification ===
+                    pr = metadata.get("practice_rehearsal", {})
+                    pr_logits = pr.get("stage_logits_tensor") if isinstance(pr, dict) else None
+                    if isinstance(pr_logits, torch.Tensor) and practice_mask.sum().item() > 0:
+                        per_row = F.cross_entropy(pr_logits, practice_level, reduction="none")
+                        pr_loss = (per_row * practice_mask).sum() / practice_mask.sum().clamp_min(1.0)
+                        aux_loss = aux_loss + self.practice_loss_weight * pr_loss
+
+                    # === Knowledge awareness loss: confidence calibration ===
+                    ka = metadata.get("knowledge_awareness", {})
+                    ka_pred = ka.get("confidence_tensor") if isinstance(ka, dict) else None
+                    if isinstance(ka_pred, torch.Tensor) and knowledge_confidence_mask.sum().item() > 0:
+                        per_row = (ka_pred - knowledge_confidence_target).pow(2)
+                        ka_loss = (per_row * knowledge_confidence_mask).sum() / knowledge_confidence_mask.sum().clamp_min(1.0)
+                        aux_loss = aux_loss + self.knowledge_awareness_loss_weight * ka_loss
+
                     loss = (lm_loss + aux_loss) / self.gradient_accumulation_steps
                 self.scaler.scale(loss).backward()
             else:
@@ -526,6 +623,30 @@ class AlanTrainer:
                     per_row = (ask_pred - should_ask_target).pow(2)
                     ask_loss = (per_row * should_ask_mask).sum() / should_ask_mask.sum().clamp_min(1.0)
                     aux_loss = aux_loss + self.should_ask_loss_weight * ask_loss
+
+                # === Dopamine loss: reward signal should match target ===
+                dop = metadata.get("dopamine", {})
+                dop_pred = dop.get("combined_reward_tensor") if isinstance(dop, dict) else None
+                if isinstance(dop_pred, torch.Tensor) and dopamine_mask.sum().item() > 0:
+                    per_row = (dop_pred - dopamine_target).pow(2)
+                    dop_loss = (per_row * dopamine_mask).sum() / dopamine_mask.sum().clamp_min(1.0)
+                    aux_loss = aux_loss + self.dopamine_loss_weight * dop_loss
+
+                # === Practice verification loss: stage classification ===
+                pr = metadata.get("practice_rehearsal", {})
+                pr_logits = pr.get("stage_logits_tensor") if isinstance(pr, dict) else None
+                if isinstance(pr_logits, torch.Tensor) and practice_mask.sum().item() > 0:
+                    per_row = F.cross_entropy(pr_logits, practice_level, reduction="none")
+                    pr_loss = (per_row * practice_mask).sum() / practice_mask.sum().clamp_min(1.0)
+                    aux_loss = aux_loss + self.practice_loss_weight * pr_loss
+
+                # === Knowledge awareness loss: confidence calibration ===
+                ka = metadata.get("knowledge_awareness", {})
+                ka_pred = ka.get("confidence_tensor") if isinstance(ka, dict) else None
+                if isinstance(ka_pred, torch.Tensor) and knowledge_confidence_mask.sum().item() > 0:
+                    per_row = (ka_pred - knowledge_confidence_target).pow(2)
+                    ka_loss = (per_row * knowledge_confidence_mask).sum() / knowledge_confidence_mask.sum().clamp_min(1.0)
+                    aux_loss = aux_loss + self.knowledge_awareness_loss_weight * ka_loss
 
                 loss = (lm_loss + aux_loss) / self.gradient_accumulation_steps
                 loss.backward()

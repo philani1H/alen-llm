@@ -8,7 +8,7 @@ Flask-based API server that:
 - Manages conversation context (Attention-to-Context)
 - Applies guardrails awareness before each response
 - Supports file uploads (images, documents)
-- Uses OpenAI API as the intelligence backend (with ALAN's personality)
+- Uses ALAN's own trained transformer weights as the inference backend
 
 Usage:
     python api/server.py
@@ -54,45 +54,29 @@ except ImportError:
 
 class AlanInferenceEngine:
     """
-    ALAN's inference engine using the trained model or OpenAI API
-    with ALAN's personality and guardrails applied.
+    ALAN's inference engine using ALAN's own trained transformer weights
+    with personality and guardrails applied.
+
+    This engine runs entirely on ALAN's custom-trained model built from
+    scratch by ECONX GROUP (PTY) LTD. No third-party LLM APIs are used.
     """
 
     def __init__(self):
         self.awareness = get_awareness_layer()
         self.conversations: Dict[str, dict] = {}  # session_id → {history, atc}
-        self._init_llm()
         self._init_local_model()
 
-    def _init_llm(self):
-        """Initialize the LLM backend."""
-        try:
-            from openai import OpenAI
-            api_key = os.environ.get("OPENAI_API_KEY", "").strip()
-            if not api_key:
-                self.client = None
-                self.llm_available = False
-                logger.info("[ALAN] OpenAI key not set — skipping OpenAI backend")
-                return
-            self.client = OpenAI(api_key=api_key)
-            self.llm_available = True
-            logger.info("[ALAN] LLM backend initialized (OpenAI API)")
-        except Exception as e:
-            self.client = None
-            self.llm_available = False
-            logger.warning(f"[ALAN] LLM backend not available: {e}")
-
     def _init_local_model(self):
+        """Initialize ALAN's trained model as the inference backend."""
         try:
             import torch
-            from transformers import GPT2Tokenizer
             from model.core_transformer import build_alan, get_device
+            from model.tokenizer import get_tokenizer
 
             self.device = get_device()
             model_size = os.environ.get("ALAN_MODEL_SIZE", "small")
             self.local_model, self.local_config = build_alan(size=model_size, device=self.device, vision=False)
-            self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-            self.tokenizer.pad_token = self.tokenizer.eos_token
+            self.tokenizer = get_tokenizer()
 
             checkpoint = os.environ.get("ALAN_CHECKPOINT")
             if checkpoint:
@@ -101,17 +85,17 @@ class AlanInferenceEngine:
                     payload = torch.load(str(ckpt_path), map_location=self.device)
                     state = payload.get("model_state_dict", payload)
                     self.local_model.load_state_dict(state, strict=False)
-                    logger.info(f"[ALAN] Local model checkpoint loaded: {ckpt_path}")
+                    logger.info(f"[ALAN] Model checkpoint loaded: {ckpt_path}")
 
-            self.local_available = True
-            logger.info(f"[ALAN] Local weights backend initialized on {self.device}")
+            self.model_available = True
+            logger.info(f"[ALAN] ALAN model backend initialized on {self.device}")
         except Exception as e:
             self.device = None
             self.local_model = None
             self.local_config = None
             self.tokenizer = None
-            self.local_available = False
-            logger.warning(f"[ALAN] Local weights backend not available: {e}")
+            self.model_available = False
+            logger.warning(f"[ALAN] ALAN model backend not available: {e}")
 
     def get_or_create_session(self, session_id: str) -> dict:
         """Get or create a conversation session."""
@@ -131,7 +115,7 @@ class AlanInferenceEngine:
     ) -> Dict:
         """
         Process a user message and return ALAN's response.
-        
+
         Steps:
         1. Update Attention-to-Context tracker
         2. Build awareness prompt (ALAN reads ALL requests, checks context)
@@ -154,21 +138,8 @@ class AlanInferenceEngine:
             context_metadata=ctx_metadata,
         )
 
-        # Step 3: Generate response
-        prefer_local = os.environ.get("ALAN_PREFER_LOCAL", "0").strip() in {"1", "true", "TRUE", "yes", "YES"}
-        if prefer_local and self.local_available:
-            response_text = self._generate_with_local_model(
-                awareness_prompt=awareness_prompt,
-            )
-        elif self.llm_available:
-            response_text = self._generate_with_llm(
-                awareness_prompt=awareness_prompt,
-                history=history,
-                user_message=user_message,
-                image_data=image_data,
-                image_type=image_type,
-            )
-        elif self.local_available:
+        # Step 3: Generate response using ALAN's own model
+        if self.model_available:
             response_text = self._generate_with_local_model(
                 awareness_prompt=awareness_prompt,
             )
@@ -203,64 +174,20 @@ class AlanInferenceEngine:
             "session_id": session_id,
         }
 
-    def _generate_with_llm(
-        self,
-        awareness_prompt: str,
-        history: List[Dict],
-        user_message: str,
-        image_data: Optional[str] = None,
-        image_type: Optional[str] = None,
-    ) -> str:
-        """Generate response using LLM with ALAN's personality."""
-        try:
-            messages = [
-                {"role": "system", "content": ALAN_SYSTEM_CONTEXT}
-            ]
-
-            # Add conversation history (last 10 turns)
-            for turn in history[-10:]:
-                messages.append(turn)
-
-            # Build current user message (with image if provided)
-            if image_data and image_type:
-                # Vision message
-                user_content = [
-                    {"type": "text", "text": user_message},
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": f"data:{image_type};base64,{image_data}"
-                        }
-                    }
-                ]
-                messages.append({"role": "user", "content": user_content})
-            else:
-                messages.append({"role": "user", "content": user_message})
-
-            response = self.client.chat.completions.create(
-                model="gpt-4.1-mini",
-                messages=messages,
-                temperature=0.7,
-                max_tokens=1000,
-            )
-            return response.choices[0].message.content.strip()
-
-        except Exception as e:
-            logger.error(f"[ALAN] LLM generation failed: {e}")
-            return f"I ran into a technical issue generating a response. Error: {str(e)[:100]}"
-
     def _generate_fallback(self, user_message: str, ctx_metadata: Dict) -> str:
-        """Fallback response when LLM is not available."""
+        """Fallback response when ALAN's model is not available."""
         topic = ctx_metadata.get("current_topic", "your question")
         return (
-            f"I'm currently running without my full language model backend. "
+            f"I'm currently running without my trained model weights. "
             f"I can see you're asking about {topic}. "
-            f"To get full responses, please ensure the API is configured correctly."
+            f"To get full responses, please train ALAN first using the training pipeline, "
+            f"then set the ALAN_CHECKPOINT environment variable to point to the saved weights."
         )
 
     def _generate_with_local_model(self, awareness_prompt: str) -> str:
-        if not self.local_available or self.local_model is None or self.tokenizer is None:
-            return "Local model is not available."
+        """Generate a response using ALAN's own trained model."""
+        if not self.model_available or self.local_model is None or self.tokenizer is None:
+            return "ALAN model is not available."
         try:
             prompt = awareness_prompt.strip() + "\nALAN:"
             input_ids = self.tokenizer.encode(prompt, return_tensors="pt").to(self.device)
@@ -277,8 +204,8 @@ class AlanInferenceEngine:
                 decoded = decoded[len(prompt):]
             return decoded.strip()
         except Exception as e:
-            logger.error(f"[ALAN] Local generation failed: {e}")
-            return "Local generation failed."
+            logger.error(f"[ALAN] Generation failed: {e}")
+            return "Generation failed."
 
     def reset_session(self, session_id: str):
         """Reset a conversation session."""
@@ -362,7 +289,7 @@ def status():
         "model": "ALAN v4",
         "version": "4.0.0",
         "developer": "ECONX GROUP (PTY) LTD",
-        "llm_available": engine.llm_available,
+        "model_available": engine.model_available,
         "device": str(torch.device("cuda" if torch.cuda.is_available() else "cpu")),
         "cuda_available": torch.cuda.is_available(),
         "active_sessions": len(engine.conversations),

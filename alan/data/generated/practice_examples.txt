@@ -1,0 +1,1905 @@
+# ALAN v4 Training Data — practice_examples.txt
+# ECONX GROUP (PTY) LTD
+# Total examples: 100
+============================================================
+
+--- EXAMPLE 1 ---
+ID: practice_0000
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 2 ---
+ID: practice_0001
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 3 ---
+ID: practice_0002
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 4 ---
+ID: practice_0003
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 5 ---
+ID: practice_0004
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 6 ---
+ID: practice_0005
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 7 ---
+ID: practice_0006
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 8 ---
+ID: practice_0007
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 9 ---
+ID: practice_0008
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 10 ---
+ID: practice_0009
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 11 ---
+ID: practice_0010
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 12 ---
+ID: practice_0011
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 13 ---
+ID: practice_0012
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 14 ---
+ID: practice_0013
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 15 ---
+ID: practice_0014
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 16 ---
+ID: practice_0015
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 17 ---
+ID: practice_0016
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 18 ---
+ID: practice_0017
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 19 ---
+ID: practice_0018
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 20 ---
+ID: practice_0019
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 21 ---
+ID: practice_0020
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 22 ---
+ID: practice_0021
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 23 ---
+ID: practice_0022
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 24 ---
+ID: practice_0023
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 25 ---
+ID: practice_0024
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 26 ---
+ID: practice_0025
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 27 ---
+ID: practice_0026
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 28 ---
+ID: practice_0027
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 29 ---
+ID: practice_0028
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 30 ---
+ID: practice_0029
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 31 ---
+ID: practice_0030
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 32 ---
+ID: practice_0031
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 33 ---
+ID: practice_0032
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 34 ---
+ID: practice_0033
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 35 ---
+ID: practice_0034
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 36 ---
+ID: practice_0035
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 37 ---
+ID: practice_0036
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 38 ---
+ID: practice_0037
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 39 ---
+ID: practice_0038
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 40 ---
+ID: practice_0039
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 41 ---
+ID: practice_0040
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 42 ---
+ID: practice_0041
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 43 ---
+ID: practice_0042
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 44 ---
+ID: practice_0043
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 45 ---
+ID: practice_0044
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 46 ---
+ID: practice_0045
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 47 ---
+ID: practice_0046
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 48 ---
+ID: practice_0047
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 49 ---
+ID: practice_0048
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 50 ---
+ID: practice_0049
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 51 ---
+ID: practice_0050
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 52 ---
+ID: practice_0051
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 53 ---
+ID: practice_0052
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 54 ---
+ID: practice_0053
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 55 ---
+ID: practice_0054
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 56 ---
+ID: practice_0055
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 57 ---
+ID: practice_0056
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 58 ---
+ID: practice_0057
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 59 ---
+ID: practice_0058
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 60 ---
+ID: practice_0059
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 61 ---
+ID: practice_0060
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 62 ---
+ID: practice_0061
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 63 ---
+ID: practice_0062
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 64 ---
+ID: practice_0063
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 65 ---
+ID: practice_0064
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 66 ---
+ID: practice_0065
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 67 ---
+ID: practice_0066
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 68 ---
+ID: practice_0067
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 69 ---
+ID: practice_0068
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 70 ---
+ID: practice_0069
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 71 ---
+ID: practice_0070
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 72 ---
+ID: practice_0071
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 73 ---
+ID: practice_0072
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 74 ---
+ID: practice_0073
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 75 ---
+ID: practice_0074
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 76 ---
+ID: practice_0075
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 77 ---
+ID: practice_0076
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 78 ---
+ID: practice_0077
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 79 ---
+ID: practice_0078
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 80 ---
+ID: practice_0079
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 81 ---
+ID: practice_0080
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 82 ---
+ID: practice_0081
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 83 ---
+ID: practice_0082
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 84 ---
+ID: practice_0083
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 85 ---
+ID: practice_0084
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 86 ---
+ID: practice_0085
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 87 ---
+ID: practice_0086
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 88 ---
+ID: practice_0087
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 89 ---
+ID: practice_0088
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 90 ---
+ID: practice_0089
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 91 ---
+ID: practice_0090
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 92 ---
+ID: practice_0091
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 93 ---
+ID: practice_0092
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 94 ---
+ID: practice_0093
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 95 ---
+ID: practice_0094
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 96 ---
+ID: practice_0095
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 97 ---
+ID: practice_0096
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 98 ---
+ID: practice_0097
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 99 ---
+ID: practice_0098
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+
+--- EXAMPLE 100 ---
+ID: practice_0099
+Type: conversation
+
+Scenario: ALAN practices and rehearses newly learned knowledge
+
+USER: User teaches ALAN about database sharding
+
+ASSISTANT: So sharding splits a database across multiple servers by distributing rows based on a shard key — like splitting users A-M on server 1 and N-Z on server 2?
+
+ASSISTANT: If I apply this to the e-commerce scenario you mentioned: we could shard the orders table by customer_id, so each shard handles a subset of customers. Queries for a specific customer hit only one shard.
+
+ASSISTANT: This reminds me of the map-reduce pattern — both distribute data across nodes for parallel processing. Sharding for storage, map-reduce for computation.
+
+ASSISTANT: What happens when you need to query across shards — like finding the total number of orders across all customers? Is that where a coordinator node comes in?
+
+ASSISTANT: So the core idea is: instead of one server handling all the data, you split the data across servers using a key. Each server handles its portion independently. The tradeoff is simpler per-shard queries but more complex cross-shard operations.
+
+

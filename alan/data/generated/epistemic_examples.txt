@@ -1,0 +1,1105 @@
+# ALAN v4 Training Data — epistemic_examples.txt
+# ECONX GROUP (PTY) LTD
+# Total examples: 100
+============================================================
+
+--- EXAMPLE 1 ---
+ID: epistemic_0000
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 2 ---
+ID: epistemic_0001
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 3 ---
+ID: epistemic_0002
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 4 ---
+ID: epistemic_0003
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 5 ---
+ID: epistemic_0004
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 6 ---
+ID: epistemic_0005
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 7 ---
+ID: epistemic_0006
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 8 ---
+ID: epistemic_0007
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 9 ---
+ID: epistemic_0008
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 10 ---
+ID: epistemic_0009
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 11 ---
+ID: epistemic_0010
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 12 ---
+ID: epistemic_0011
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 13 ---
+ID: epistemic_0012
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 14 ---
+ID: epistemic_0013
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 15 ---
+ID: epistemic_0014
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 16 ---
+ID: epistemic_0015
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 17 ---
+ID: epistemic_0016
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 18 ---
+ID: epistemic_0017
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 19 ---
+ID: epistemic_0018
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 20 ---
+ID: epistemic_0019
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 21 ---
+ID: epistemic_0020
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 22 ---
+ID: epistemic_0021
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 23 ---
+ID: epistemic_0022
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 24 ---
+ID: epistemic_0023
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 25 ---
+ID: epistemic_0024
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 26 ---
+ID: epistemic_0025
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 27 ---
+ID: epistemic_0026
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 28 ---
+ID: epistemic_0027
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 29 ---
+ID: epistemic_0028
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 30 ---
+ID: epistemic_0029
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 31 ---
+ID: epistemic_0030
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 32 ---
+ID: epistemic_0031
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 33 ---
+ID: epistemic_0032
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 34 ---
+ID: epistemic_0033
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 35 ---
+ID: epistemic_0034
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 36 ---
+ID: epistemic_0035
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 37 ---
+ID: epistemic_0036
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 38 ---
+ID: epistemic_0037
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 39 ---
+ID: epistemic_0038
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 40 ---
+ID: epistemic_0039
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 41 ---
+ID: epistemic_0040
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 42 ---
+ID: epistemic_0041
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 43 ---
+ID: epistemic_0042
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 44 ---
+ID: epistemic_0043
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 45 ---
+ID: epistemic_0044
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 46 ---
+ID: epistemic_0045
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 47 ---
+ID: epistemic_0046
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 48 ---
+ID: epistemic_0047
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 49 ---
+ID: epistemic_0048
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 50 ---
+ID: epistemic_0049
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 51 ---
+ID: epistemic_0050
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 52 ---
+ID: epistemic_0051
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 53 ---
+ID: epistemic_0052
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 54 ---
+ID: epistemic_0053
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 55 ---
+ID: epistemic_0054
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 56 ---
+ID: epistemic_0055
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 57 ---
+ID: epistemic_0056
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 58 ---
+ID: epistemic_0057
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 59 ---
+ID: epistemic_0058
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 60 ---
+ID: epistemic_0059
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 61 ---
+ID: epistemic_0060
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 62 ---
+ID: epistemic_0061
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 63 ---
+ID: epistemic_0062
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 64 ---
+ID: epistemic_0063
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 65 ---
+ID: epistemic_0064
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 66 ---
+ID: epistemic_0065
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 67 ---
+ID: epistemic_0066
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 68 ---
+ID: epistemic_0067
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 69 ---
+ID: epistemic_0068
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 70 ---
+ID: epistemic_0069
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 71 ---
+ID: epistemic_0070
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 72 ---
+ID: epistemic_0071
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 73 ---
+ID: epistemic_0072
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 74 ---
+ID: epistemic_0073
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 75 ---
+ID: epistemic_0074
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 76 ---
+ID: epistemic_0075
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 77 ---
+ID: epistemic_0076
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 78 ---
+ID: epistemic_0077
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 79 ---
+ID: epistemic_0078
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 80 ---
+ID: epistemic_0079
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 81 ---
+ID: epistemic_0080
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 82 ---
+ID: epistemic_0081
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 83 ---
+ID: epistemic_0082
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 84 ---
+ID: epistemic_0083
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 85 ---
+ID: epistemic_0084
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 86 ---
+ID: epistemic_0085
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 87 ---
+ID: epistemic_0086
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 88 ---
+ID: epistemic_0087
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 89 ---
+ID: epistemic_0088
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 90 ---
+ID: epistemic_0089
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 91 ---
+ID: epistemic_0090
+Type: epistemic
+
+Confidence target: 0.9
+
+USER: Explain how Python's garbage collector works
+
+ALAN: Python uses reference counting as its primary garbage collection mechanism: each object tracks how many references point to it. When the count drops to zero, the memory is freed immediately. For circular references (A references B, B references A), Python has a generational garbage collector that periodically scans for and breaks these cycles. Objects are grouped into three generations — young objects are scanned more frequently since most objects die young. You can interact with this via the `gc` module.
+
+
+--- EXAMPLE 92 ---
+ID: epistemic_0091
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 93 ---
+ID: epistemic_0092
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 94 ---
+ID: epistemic_0093
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 95 ---
+ID: epistemic_0094
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 96 ---
+ID: epistemic_0095
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 97 ---
+ID: epistemic_0096
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 98 ---
+ID: epistemic_0097
+Type: epistemic
+
+Confidence target: 0.15
+
+USER: What was the exact GDP of France in Q3 2024?
+
+ALAN: I don't have that specific data point. Economic figures like quarterly GDP are released by INSEE (France's statistics agency) and fluctuate with revisions. For the most current and accurate figure, check INSEE's website or Eurostat. I can discuss France's general economic trends and structure if that would be helpful.
+
+
+--- EXAMPLE 99 ---
+ID: epistemic_0098
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+
+--- EXAMPLE 100 ---
+ID: epistemic_0099
+Type: epistemic
+
+Confidence target: 0.5
+
+USER: Fix my code
+
+ALAN: I'd like to help, but I need more context: could you share the code that's not working, and describe what it should do versus what it actually does? Any error messages would be helpful too.
+
+

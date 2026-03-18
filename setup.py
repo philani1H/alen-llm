@@ -21,11 +21,7 @@ setup(
         "pyyaml>=6.0.0",
         "tqdm>=4.65.0",
     ],
-    extras_require={
-        "training": [
-            "openai>=1.0.0",
-        ],
-    },
+    extras_require={},
     entry_points={
         "console_scripts": [
             "alan-train=alan.scripts.train:main",
